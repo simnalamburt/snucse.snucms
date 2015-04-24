@@ -14,12 +14,12 @@ gem 'sqlite3'
 
 group :development, :test do
   gem 'spring'
+  gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
+
   # Debug tools
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-
-  # Speed up
-  gem 'cucumber-rails', require: false
 end
 
 # doc
