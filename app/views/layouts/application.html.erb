@@ -10,12 +10,21 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<h1 class="ui header">SNUCSE CMS</h1>
-<p>
-  <% if user_signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-  <% end %>
-</p>
+<div class="ui page grid">
+  <div class="ten wide column">
+    <h1 class="ui header">SNUCSE CMS</h1>
+  </div>
+  <div class="six wide column right aligned">
+      <% if user_signed_in? %>
+        <%= link_to edit_user_registration_path do %>
+          <i class="icon settings"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do  %>
+          <i class="icon sign out"></i>
+        <% end %>
+      <% end %>
+  </div>
+</div>
 <%= yield %>
 
 </body>
