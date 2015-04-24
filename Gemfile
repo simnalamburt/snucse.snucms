@@ -16,6 +16,7 @@ group :development, :test do
   gem 'spring'
   gem 'cucumber-rails', require: false
   gem 'simplecov', require: false
+  gem 'database_cleaner'
 
   # Debug tools
   gem 'byebug'
