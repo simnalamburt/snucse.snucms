@@ -10,6 +10,9 @@ when 'development'
     { name: '시스템프로그래밍' }
   ]
 
+  User.delete_all
+  User.create email: 'test@example.com', password: 'testpass'
+
   Admin.delete_all
   Admin.create email: 'admin@example.com', password: 'adminpass'
 end
