@@ -6,9 +6,9 @@
         <i class="search icon"></i>
       </div>
       <div class="ui list">
-        <a class="item" href="#">시스템프로그래밍</a>
-        <a class="item" href="#">Principles and Practices of Software Development</a>
-        <a class="item" href="#">멀티코어 컴퓨팅</a>
+        <% current_user.course.each do |c| %>
+          <a class="item" href="#"><%= c.name %></a>
+        <% end %>
       </div>
     </div>
   </div>
