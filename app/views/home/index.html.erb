@@ -1,2 +1,30 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="ui page grid">
+  <div class="five wide column">
+    <div class="ui segment">
+      <div class="ui fluid icon input">
+        <input type="serach" placeholder="Search Course">
+        <i class="search icon"></i>
+      </div>
+      <div class="ui list">
+        <a class="item" href="#">시스템프로그래밍</a>
+        <a class="item" href="#">Principles and Practices of Software Development</a>
+        <a class="item" href="#">멀티코어 컴퓨팅</a>
+      </div>
+    </div>
+  </div>
+  <div class="eleven wide column">
+    <div class="ui list">
+      <% (1...5).each do |i| %>
+      <div class="ui fluid card">
+        <div class="content">
+          <div class="header">Principles and Practices of Software Development</div>
+          <div class="meta">30초 전</div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
