@@ -6,8 +6,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
 gem 'turbolinks'
 gem 'devise'
+
 
 # DB
 gem 'sqlite3'
