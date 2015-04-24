@@ -1,3 +1,6 @@
 = SNUCMS
 
 서울대학교 학생을 위한 강의정보 웹서비스
+
+  bundle install
+  rake db:migrate db:seed
