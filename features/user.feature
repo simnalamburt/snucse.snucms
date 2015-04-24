@@ -1,4 +1,5 @@
 Feature: User
+  @javascript
   Scenario: User tries to signup
     Given I am on the SNUCSE CMS landing page
     When I want to sign up, I fill in "SnuEmail" with "mysnumail@snu.ac.kr"
@@ -8,6 +9,7 @@ Feature: User
     Then I should be on the SNUCSE CMS landing page
     And I should see "환영합니다! 등록하신 스누메일로 인증 메일이 전송되었습니다. 확인해 주세요."
 
+  @javascript
   Scenario: User tries to login
     Given I am on the SNUCSE CMS landing page
     When I want to log in, I fill in "SNU Email" with "mysnumail@snu.ac.kr"
@@ -15,6 +17,7 @@ Feature: User
     And I press "Login"
     Then I should go to SNUCSE CMS main page.
 
+  @javascript
   Scenario: User tries to logout
     Given I am on the SNUCSE CMS main page and logged in
     When I follow "Modify info" button
@@ -25,6 +28,7 @@ Feature: User
     And I press "Modify"
     Then I should be on SNUCSE CMS main page
 
+  @javascript
   Scenario: User tries to modify info
     Given I am on the SNUCSE CMS main page and logged in
     When I follow "Modify info" button
@@ -35,6 +39,7 @@ Feature: User
     And I press "Modify"
     Then I should be on SNUCSE CMS main page
 
+  @javascript
   Scenario: User tries to remove user
     Given I am on the SNUCSE CMS main page and logged in
     When I follow "Modify info" button
