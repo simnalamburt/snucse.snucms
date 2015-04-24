@@ -4,3 +4,5 @@
 
   bundle install
   rake db:migrate db:seed
+
+개발용 관리자 이메일, 비밀번호: <code>admin@example.com</code>, +adminpass+
