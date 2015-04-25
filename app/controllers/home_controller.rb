@@ -6,6 +6,6 @@ class HomeController < ApplicationController
 
   def course_list
     courses = Course.all
-    render json: courses.map {|c| {'title' => c.name}}
+    render json: courses.map {|c| {'id': c.id, 'title' => c.name}}
   end
 end
