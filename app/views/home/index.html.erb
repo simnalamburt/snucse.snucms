@@ -10,7 +10,12 @@
       </div>
       <div class="ui list" id="course-list">
         <% current_user.course.each do |c| %>
-          <a class="item" href="#"><%= c.name %></a>
+          <p class="item">
+            <%= c.name %>
+            <a href="#" data-course-id="<%= c.id %>" class="delete-course">
+              <i class="icon trash"></i>
+            </a>
+          </p>
         <% end %>
       </div>
     </div>

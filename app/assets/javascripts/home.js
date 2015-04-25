@@ -1,19 +1,40 @@
 (function() {
-  $.get('/course/list')
-  .success(function(data) {
-    $('.ui.search').search({
-      source: data,
-      onSelect: function(result) {
-        $.post('/course/follow', {id: result.id})
-        .success(function() {
-          $("#course-list").append(
-            '<a class="item" href="#">' + result.title + '</a>'
-            );
-          $(".ui.search .prompt").val('');
-        })
-        .error(function() {
-        });
-      }
+  $(document).ready(function() {
+    $.get('/course/list')
+    .success(function(data) {
+      $('.ui.search').search({
+        source: data,
+        onSelect: function(result) {
+          $.post('/course/follow', {id: result.id})
+          .success(function() {
+            $("#course-list").append(
+              '<p class="item">' +
+                result.title +
+                '<a href="#" data-course-id="' +
+                  result.id +
+                  '" class="delete-course">' +
+                  '<i class="icon trash"></i>' +
+                '</a>' +
+              '</p>'
+              );
+            $(".ui.search .prompt").val('');
+          })
+          .error(function() {
+          });
+        }
+      });
+    });
+
+    $(document).on('click', ".delete-course", function() {
+      var $this = $(this);
+      $.ajax({
+        method: 'delete',
+        url: '/course/unfollow',
+        data: {id: $this.data('courseId')}
+      }).success(function(data) {
+        $this.parents('p.item').remove();
+      });
+      return false;
     });
   });
 })();
