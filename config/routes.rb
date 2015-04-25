@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: 'unauthenticated_root'
     end
   end
+
+  get 'course/list' => 'home#course_list'
 end
