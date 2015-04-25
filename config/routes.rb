@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   get 'course/list' => 'home#course_list'
+  post 'course/follow' => 'home#follow_course'
 end
