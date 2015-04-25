@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
     current_user.course << @course
 
-    render json: current_user.course.map { |c| {id: c.id, title: c.name } }
+    render json: current_user.course.map { |c| { id: c.id, title: c.name } }
   end
 
   def unfollow_course
@@ -28,6 +28,6 @@ class HomeController < ApplicationController
 
     current_user.course.delete(@course)
 
-    render json: current_user.course.map { |c| {id: c.id, title: c.name } }
+    render json: current_user.course.map { |c| { id: c.id, title: c.name } }
   end
 end
