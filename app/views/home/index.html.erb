@@ -8,7 +8,7 @@
         </div>
         <div class="results"></div>
       </div>
-      <div class="ui list">
+      <div class="ui list" id="course-list">
         <% current_user.course.each do |c| %>
           <a class="item" href="#"><%= c.name %></a>
         <% end %>
