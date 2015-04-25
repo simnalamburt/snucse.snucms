@@ -1,9 +1,12 @@
 <div class="ui page grid">
   <div class="five wide column">
     <div class="ui segment">
-      <div class="ui fluid icon input">
-        <input type="serach" placeholder="Search Course">
-        <i class="search icon"></i>
+      <div class="ui fluid search">
+        <div class="ui fluid icon input">
+          <input class="prompt" type="text" placeholder="Search Course">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
       </div>
       <div class="ui list">
         <% current_user.course.each do |c| %>

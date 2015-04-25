@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       get 'signup', to: 'registration#new'
     end
   end
+
+  get 'course/list' => 'home#course_list'
 end

@@ -3,4 +3,9 @@ class HomeController < ApplicationController
 
   def index
   end
+
+  def course_list
+    courses = Course.all
+    render json: courses.map { |c| { id: c.id, 'title' => c.name } }
+  end
 end
