@@ -1,19 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: 소프트웨어 개발의 원리와 실제
 
 two:
+  id: 2
   name: 멀티코어 컴퓨팅
 
 three:
+  id: 3
   name: IT-리더십 세미나
 
 four:
+  id: 4
   name: Principles and Practices of Software Development
 
 five:
+  id: 5
   name: 창의적통합설계2
 
 six:
+  id: 6
   name: 시스템프로그래밍

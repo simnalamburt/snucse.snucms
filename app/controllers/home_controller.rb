@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   end
 
   def follow_course
-    @course = Course.find(params[:id])
+    @course = Course.find_by_id(params[:id])
     return render nothing: true, status: 400 if @course.nil?
 
     return render nothing: true, status: 409 if current_user.course.include? @course
