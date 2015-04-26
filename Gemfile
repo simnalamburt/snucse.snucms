@@ -16,6 +16,7 @@ gem 'sqlite3'
 group :development, :test do
   gem 'spring'
   gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'database_cleaner'
 
