@@ -5,10 +5,23 @@ SNUCMS
 
 ![Screenshot](https://swsnu.github.io/SNUCMS/screenshot.png)
 
-```sh
-bundle install
-rake db:migrate db:seed
-```
+### Instructions
+
+1.  Checkout source codes
+
+1.  Set up rails environment
+
+    ```sh
+    bundle install
+    rake db:migrate db:seed
+    ```
+
+1.  Test
+
+    ```sh
+    cucumber
+    rake test
+    ```
 
 * 테스트용 계정, 비밀번호: `test@example.com`, `testpass`
 * 개발용 관리자계정, 비밀번호: `admin@example.com`, `adminpass`
