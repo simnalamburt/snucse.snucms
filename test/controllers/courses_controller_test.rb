@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class CoursesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @course = courses(:one)
+
+    @admin = admins(:one)
+    sign_in :admin, @admin
   end
 
   test "should get index" do
