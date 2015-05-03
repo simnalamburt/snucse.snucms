@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
     unauthenticated do
       root 'devise/sessions#new', as: 'unauthenticated_root'
-      get 'signup', to: 'registrations#new'
     end
   end
 
