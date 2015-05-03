@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :admins, controllers: { registrations: 'registration' }
+  devise_for :users, :admins, controllers: { registrations: 'registrations' }
   resources :courses
 
   devise_scope :user do
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     unauthenticated do
       root 'devise/sessions#new', as: 'unauthenticated_root'
-      get 'signup', to: 'registration#new'
+      get 'signup', to: 'registrations#new'
     end
   end
 
