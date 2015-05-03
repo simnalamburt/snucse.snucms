@@ -4,11 +4,6 @@ class HomeController < ApplicationController
   def index
   end
 
-  def course_list
-    courses = Course.all
-    render json: courses.map { |c| { id: c.id, title: c.name } }
-  end
-
   def follow_course
     @course = Course.find_by_id(params[:id])
     return render nothing: true, status: 400 if @course.nil?

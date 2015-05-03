@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'course/list' => 'home#course_list'
   post 'course/follow' => 'home#follow_course'
   delete 'course/unfollow' => 'home#unfollow_course'
 end

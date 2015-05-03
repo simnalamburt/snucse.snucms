@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    $.get('/course/list')
+    $.get('/courses.json')
     .success(function(data) {
       $('.ui.search').search({
         source: data,
