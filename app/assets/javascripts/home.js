@@ -3,7 +3,7 @@
     $.get('/courses.json')
     .success(function(data) {
       $('.ui.search').search({
-        source: data,
+        source: data.map(function(i) { return { id: i.id, title: i.name } }),
         onSelect: function(result) {
           $.post('/course/follow', {id: result.id})
           .success(function() {

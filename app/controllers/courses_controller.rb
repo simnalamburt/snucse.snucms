@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
 
     respond_to do |f|
       f.html
-      f.json { render json: @courses.map { |c| { id: c.id, title: c.name } } }
+      f.json { render json: @courses }
     end
   end
 
