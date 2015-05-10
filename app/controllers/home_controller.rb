@@ -2,9 +2,13 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def follow_course
-    @course = Course.find params[:id]
+    @course = Course.find_by id: params[:id]
 
-    if @course.nil? or current_user.course.include? @course
+    if current_user.course.include? @course
+      return render nothing: true, status: 409  # Conflict error
+    end
+
+    if @course.nil?
       return render nothing: true, status: 400
     end
 
@@ -13,11 +17,13 @@ class HomeController < ApplicationController
   end
 
   def unfollow_course
-    @course = Course.find params[:id]
+    @course = Course.find_by id: params[:id]
 
-    if @course.nil? or not current_user.course.delete @course
+    if @course.nil? or not current_user.course.include? @course
       return render nothing: true, status: 400
     end
+
+    current_user.course.delete @course
 
     render nothing: true
   end

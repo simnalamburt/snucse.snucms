@@ -10,12 +10,6 @@ class CoursesControllerTest < ActionController::TestCase
     sign_in :admin, @admin
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:courses)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
@@ -50,5 +44,22 @@ class CoursesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to courses_path
+  end
+
+  # Searching course test
+
+  test 'course list should get result' do
+    @user = users(:one)
+    sign_in :user, @user
+
+    get :index, format: 'json'
+    assert_response :success
+    json = JSON.parse(response.body)
+    assert_equal 6, json.length
+  end
+
+  test 'unauthenticated user cannot see course list' do
+    get :index, format: 'json'
+    assert_response 401
   end
 end
