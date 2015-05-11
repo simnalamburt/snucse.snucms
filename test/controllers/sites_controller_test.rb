@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class SitesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @site = sites(:one)
+
+    @admin = admins(:one)
+    sign_in :admin, @admin
   end
 
   test "should get index" do

@@ -3,11 +3,11 @@
 one:
   name: MyString
   url: MyString
-  crawling_type: MyString
+  crawling_type: googlesite
   course_id: 1
 
 two:
   name: MyString
   url: MyString
-  crawling_type: MyString
-  course_id: 1
+  crawling_type: custom
+  course_id: 2

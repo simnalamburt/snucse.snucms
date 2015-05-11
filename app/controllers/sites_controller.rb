@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+  before_action :authenticate_admin!, except: [:index]
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
