@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
+    <%= f.select :course_id, options_for_select(@courses.map{|course| [course.name, course.id]}, selected: @site.course_id) %>
   </div>
   <div class="actions">
     <%= f.submit %>

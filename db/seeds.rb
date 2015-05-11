@@ -18,8 +18,8 @@ when 'development'
 
   Site.delete_all
   sites = Site.create [
-    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: 1 },
-    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: 4 },
-    { name: '메인 사이트', url: 'http://meslab.snu.ac.kr/courses/2015s/project/', crawling_type: 'custom', course_id: 5 }
+    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: Course.find_by(name: '소프트웨어 개발의 원리와 실제').id  },
+    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: Course.find_by(name:'Principles and Practices of Software Development').id },
+    { name: '메인 사이트', url: 'http://meslab.snu.ac.kr/courses/2015s/project/', crawling_type: 'custom', course_id: Course.find_by(name: '창의적통합설계2').id }
   ]
 end

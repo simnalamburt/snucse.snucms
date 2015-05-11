@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   before_action :authenticate_admin!, except: [:index]
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_filter :set_courses
 
   # GET /sites
   def index
@@ -55,5 +56,9 @@ class SitesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def site_params
       params.require(:site).permit(:name, :url, :crawling_type, :course_id)
+    end
+
+    def set_courses
+      @courses = Course.all
     end
 end
