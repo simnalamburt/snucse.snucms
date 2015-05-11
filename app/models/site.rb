@@ -9,8 +9,5 @@ class Site < ActiveRecord::Base
   validates :name, presence: true
   validates :url, presence: true
   validates :course_id, presence: true
-
-  def init
-    self.crawling_type ||= 'custom'
-  end
+  validates :crawling_type, presence: true
 end
