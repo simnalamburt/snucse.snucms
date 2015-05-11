@@ -15,4 +15,11 @@ when 'development'
 
   Admin.delete_all
   Admin.create email: 'admin@example.com', password: 'adminpass'
+
+  Site.delete_all
+  sites = Site.create [
+    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: 1 },
+    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course_id: 4 },
+    { name: '메인 사이트', url: 'http://meslab.snu.ac.kr/courses/2015s/project/', crawling_type: 'custom', course_id: 5 }
+  ]
 end
