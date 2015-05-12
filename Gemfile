@@ -11,9 +11,6 @@ gem 'autoprefixer-rails'
 gem 'turbolinks'
 gem 'devise'
 
-# for cron job
-gem 'whenever', require: false
-
 # DB
 gem 'sqlite3'
 
@@ -28,6 +25,10 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
+
+# Crawler
+gem 'whenever', require: false
+gem 'wombat'
 
 # doc
 gem 'sdoc', '~> 0.4.0', group: :doc
