@@ -1,33 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Sites</h1>
+<div class="ui center aligned compact segment">
+  <h1>Listing Sites</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th>Crawling type</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="ui table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Crawling type</th>
+        <th>Course</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @sites.each do |site| %>
       <tr>
-        <td><%= site.name %></td>
-        <td><%= site.url %></td>
-        <td><%= site.crawling_type %></td>
-        <td><%= site.course_id %></td>
-        <td><%= link_to 'Show', site %></td>
-        <td><%= link_to 'Edit', edit_site_path(site) %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <td><%= site.name %></td>
+      <td><%= site.url %></td>
+      <td><%= site.crawling_type %></td>
+      <td><%= site.course_id %></td>
+      <td><%= link_to 'Show', site %></td>
+      <td><%= link_to 'Edit', edit_site_path(site) %></td>
+      <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Site', new_site_path %>
+<div class="ui tag label">
+  <%= link_to 'New Site', new_site_path %>
+</div>
