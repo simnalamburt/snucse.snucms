@@ -1,4 +1,4 @@
-<% @timeline.each do |tl| %>
+<% if @timeline.each do |tl| %>
   <div class="ui fluid card">
     <div class="content">
       <div class="header"><%= tl.site.course.name %></div>
@@ -11,4 +11,12 @@
       </div>
     </div>
   </div>
+<% end.empty? %>
+<div class="ui fluid card">
+  <div class="content">
+    <div class="description">
+      You don't describe any course or no course have notification!
+    </div>
+  </div>
+</div>
 <% end %>
