@@ -5,4 +5,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :course
+  has_many :sites, through: :course
+
+  def timeline_initial(count = 10)
+    timeline_older_than -1, count
+  end
+
+  # offset log id보다 작은 로그를 count 갯수만큼 가져온다
+  def timeline_older_than(offset = -1, count = 10)
+    timeline = Log.includes(:course).where(site: self.sites).order('id desc').limit(count)
+
+    if offset > 0 then
+      timeline = timeline.where('id < ?', offset)
+    end
+
+    return timeline
+  end
 end

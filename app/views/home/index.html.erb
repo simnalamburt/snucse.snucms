@@ -22,16 +22,19 @@
   </div>
   <div class="eleven wide column">
     <div class="ui list">
-      <% 5.times do %>
-      <div class="ui fluid card">
-        <div class="content">
-          <div class="header">Principles and Practices of Software Development</div>
-          <div class="meta">30초 전</div>
-          <div class="description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <% current_user.timeline_initial.each do |tl| %>
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header"><%= tl.site.course.name %></div>
+            <div class="meta"><%= tl.created_at %></div>
+            <div class="description">
+              <%= raw tl.message %>
+              <p>
+                <a href="<%= tl.site.url %>"><%= tl.site.url %></a>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
