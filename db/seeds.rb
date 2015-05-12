@@ -17,8 +17,18 @@ when 'development'
 
   Site.delete_all
   sites = Site.create [
-    { name: '메인 사이트', url: 'https://sites.google.com/site/snuswppspr2015/', crawling_type: 'googlesite', course: courses[0]  },
-    { name: '메인 사이트', url: 'http://meslab.snu.ac.kr/courses/2015s/project/', crawling_type: 'custom', course: courses[3] }
+    {
+      name: '최근 변경사항',
+      url: 'https://sites.google.com/site/snuswppspr2015/system/app/pages/recentChanges',
+      crawling_type: :google_site_recent_changes,
+      course: courses[0]
+    },
+    {
+      name: '메인 사이트',
+      url: 'http://meslab.snu.ac.kr/courses/2015s/project/',
+      crawling_type: :undefined,
+      course: courses[3]
+    }
   ]
 
   Log.delete_all
