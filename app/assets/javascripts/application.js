@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require semantic_ui/semantic_ui
+//= require jquery.appear
