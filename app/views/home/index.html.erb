@@ -9,7 +9,7 @@
         <div class="results"></div>
       </div>
       <div class="ui list" id="course-list">
-        <% current_user.course.each do |c| %>
+        <% current_user.courses.each do |c| %>
           <p class="item">
             <%= c.name %>
             <a href="#" data-course-id="<%= c.id %>" class="delete-course">

@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :course
-  has_many :sites, through: :course
+  has_and_belongs_to_many :courses
+  has_many :sites, through: :courses
 
   def timeline_initial(count = 10)
     timeline_older_than -1, count

@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def follow_course
     @course = Course.find_by id: params[:id]
 
-    if current_user.course.include? @course
+    if current_user.courses.include? @course
       return render nothing: true, status: 409  # Conflict error
     end
 
@@ -12,18 +12,18 @@ class HomeController < ApplicationController
       return render nothing: true, status: 400
     end
 
-    current_user.course << @course
+    current_user.courses << @course
     render nothing: true
   end
 
   def unfollow_course
     @course = Course.find_by id: params[:id]
 
-    if @course.nil? or not current_user.course.include? @course
+    if @course.nil? or not current_user.courses.include? @course
       return render nothing: true, status: 400
     end
 
-    current_user.course.delete @course
+    current_user.courses.delete @course
 
     render nothing: true
   end
