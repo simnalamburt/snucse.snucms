@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   post 'course/follow' => 'home#follow_course'
   delete 'course/unfollow' => 'home#unfollow_course'
+
+  get 'timeline' => 'timeline#index'
 end

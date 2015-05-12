@@ -15,6 +15,7 @@ $(function() {
             '</p>'
             );
           $('.ui.search .prompt').val('');
+          $("#timeline-list").load("/timeline");
         });
       }
     });
@@ -29,6 +30,7 @@ $(document).on('click', '.delete-course', function() {
     data: { id: $this.data('courseId') }
   }).success(function() {
     $this.parents('p.item').remove();
+    $("#timeline-list").load("/timeline");
   });
   return false;
 });
