@@ -10,7 +10,7 @@ when 'development'
   ]
 
   User.delete_all
-  User.create email: 'test@example.com', password: 'testpass', course: courses[0..2]
+  User.create email: 'test@example.com', password: 'testpass', courses: courses[0..2]
 
   Admin.delete_all
   Admin.create email: 'admin@example.com', password: 'adminpass'
