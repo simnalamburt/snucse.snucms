@@ -37,4 +37,17 @@ $(function() {
     $(this).closest('.message').transition('scale out', function() { $(this).remove(); });
   });
   $("#timeline-list").load("/timeline");
+  $("a.timeline-next").appear();
+
+  var getOldestTimeLineId = function() {
+    return  Math.min.apply(Math,
+      $("#timeline-list .ui.card").map(function(i, e) { return parseInt($(e).data('timeline-id')); }));
+  };
+  $(document.body).on('appear', "a.timeline-next", function(e) {
+    var oldestTimeLineId = getOldestTimeLineId();
+    $("#timeline-list").append($("<div>").load('/timeline/older/' + oldestTimeLineId + '?ajax=1'));
+    if(oldestTimeLineId === getOldestTimeLineId()) {
+      $(this).remove();
+    }
+  });
 });
