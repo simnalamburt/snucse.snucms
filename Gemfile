@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'devise'
 
 # for cron job
-gem 'whenever'
+gem 'whenever', require: false
 
 # DB
 gem 'sqlite3'
