@@ -1,5 +1,5 @@
 <% if @timeline.each do |tl| %>
-  <div class="ui fluid card">
+  <div class="ui fluid card" data-timeline-id="<%= tl.id %>">
     <div class="content">
       <div class="header"><%= tl.site.course.name %></div>
       <div class="meta"><%= time_ago_in_words(tl.created_at, include_seconds: true) %></div>
@@ -12,6 +12,7 @@
     </div>
   </div>
 <% end.empty? %>
+<% if not @ajax %>
 <div class="ui fluid card">
   <div class="content">
     <div class="description">
@@ -19,4 +20,5 @@
     </div>
   </div>
 </div>
+<% end %>
 <% end %>

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   delete 'course/unfollow' => 'home#unfollow_course'
 
   get 'timeline' => 'timeline#index'
+  get 'timeline/older/:offset' => 'timeline#older_than'
 end
