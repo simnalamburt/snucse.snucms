@@ -1,13 +1,30 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   full_data:
   data_hash: MyString
-  message: MyString
+  message: messasge1
   site_id: 1
 
 two:
+  id: 2
   full_data:
   data_hash: MyString
-  message: MyString
+  message: message2
   site_id: 1
+
+three:
+  id: 3
+  message: message3
+  site_id: 2
+
+four:
+  id: 4
+  message: message4
+  site_id: 1
+
+five:
+  id: 5
+  message: message5
+  site_id: 2

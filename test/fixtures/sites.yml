@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  url: MyString
+  id: 1
+  name: site1
+  url: url1
   crawling_type: googlesite
   course_id: 1
 
 two:
-  name: MyString
-  url: MyString
+  id: 2
+  name: site2
+  url: url2
   crawling_type: custom
   course_id: 2
