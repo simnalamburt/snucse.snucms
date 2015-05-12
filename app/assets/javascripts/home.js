@@ -20,17 +20,18 @@ $(function() {
       }
     });
   });
-});
-
-$(document).on('click', '.delete-course', function() {
-  var $this = $(this);
-  $.ajax({
-    method: 'delete',
-    url: '/course/unfollow',
-    data: { id: $this.data('courseId') }
-  }).success(function() {
-    $this.parents('p.item').remove();
-    $("#timeline-list").load("/timeline");
+  $(document).on('click', '.delete-course', function() {
+    var $this = $(this);
+    $.ajax({
+      method: 'delete',
+      url: '/course/unfollow',
+      data: { id: $this.data('courseId') }
+    }).success(function() {
+      $this.parents('p.item').remove();
+      $("#timeline-list").load("/timeline");
+    });
+    return false;
   });
-  return false;
+
+  $("#timeline-list").load("/timeline");
 });

@@ -22,20 +22,6 @@
   </div>
   <div class="eleven wide column">
     <div class="ui list" id="timeline-list">
-      <% current_user.timeline_initial.each do |tl| %>
-        <div class="ui fluid card">
-          <div class="content">
-            <div class="header"><%= tl.site.course.name %></div>
-            <div class="meta"><%= time_ago_in_words(tl.created_at, include_seconds: true) %></div>
-            <div class="description">
-              <%= raw tl.message %>
-              <p>
-                <a href="<%= tl.site.url %>"><%= tl.site.url %></a>
-              </p>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
