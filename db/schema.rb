@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511043206) do
+ActiveRecord::Schema.define(version: 20150512034910) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20150511043206) do
     t.integer "user_id",   null: false
     t.integer "course_id", null: false
   end
+
+  create_table "logs", force: :cascade do |t|
+    t.binary   "full_data"
+    t.string   "hash"
+    t.string   "message"
+    t.integer  "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "logs", ["site_id"], name: "index_logs_on_site_id"
 
   create_table "sites", force: :cascade do |t|
     t.string   "name"
