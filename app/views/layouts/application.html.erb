@@ -33,7 +33,7 @@
       <% if user_signed_in? %>
         <% unless edit_user_registration_path == request.path %>
           <%= link_to edit_user_registration_path do %>
-            <i class="icon settings"></i>
+            <i class="icon settings" id="edit_button"></i>
           <% end %>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>

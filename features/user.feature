@@ -20,21 +20,18 @@ Feature: User
   #  @javascript
   Scenario: User tries to modify info
     Given I am on the SNUCSE CMS main page
-    When I follow "Modify info" button
+    When I press "Edit" button
     Then I should be on the modify information page
-    When I fill in "current password" with "MyPassword"
-    And I fill in "new password" with "MyNewPassword"
-    And I fill in "confirm new password" with "MyNewPassword"
+    When I fill in "current password" and "new password" and "confirm new password"
     And I press "Modify"
     Then I should be on the SNUCSE CMS main page
 
   # @javascript
   Scenario: User tries to remove user
     Given I am on the SNUCSE CMS main page
-    When I follow "Modify info" button
+    When I press "Edit" button
     Then I should be on the modify information page
     When I press "Remove account" link
     Then I should see "will you really want to remove account?" and "yes" and "no".
     And I press "Yes"
-    Then account will be deleted
-    And I should be on SNUCSE CMS landing page
+    Then I should be on SNUCSE CMS landing page
