@@ -11,6 +11,9 @@ gem 'autoprefixer-rails'
 gem 'turbolinks'
 gem 'devise'
 
+# for cron job
+gem 'whenever'
+
 # DB
 gem 'sqlite3'
 

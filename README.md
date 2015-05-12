@@ -16,6 +16,13 @@ SNUCMS
     rake db:migrate db:seed
     ```
 
+1.  Update crontab for crawling script
+
+    ```sh
+    vi config/schedule.rb
+    whenever --update-crontab
+    ```
+
 1.  Test
 
     ```sh
