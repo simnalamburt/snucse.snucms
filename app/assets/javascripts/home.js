@@ -33,5 +33,8 @@ $(function() {
     return false;
   });
 
+  $(document).on('click', '.icon.close', function() {
+    $(this).closest('.message').transition('scale out', function() { $(this).remove(); });
+  });
   $("#timeline-list").load("/timeline");
 });

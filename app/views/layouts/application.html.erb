@@ -8,8 +8,23 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if not notice.nil? %>
+  <div class="ui icon success message">
+    <i class="close icon"></i>
+    <div class="content">
+      <p class="notice"><%= notice %></p>
+    </div>
+  </div>
+<% end %>
+<% if not alert.nil? %>
+  <div class="ui icon error message">
+    <i class="close icon"></i>
+    <i class="attention circle icon"></i>
+    <div class="content">
+      <p class="alert"><%= alert %></p>
+    </div>
+  </div>
+<% end %>
 <div class="ui page grid">
   <div class="ten wide column">
     <h1 class="ui header">SNUCSE CMS</h1>
