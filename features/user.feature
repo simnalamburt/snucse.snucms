@@ -1,23 +1,23 @@
 Feature: User
-  @javascript
+  #  @javascript
   Scenario: User tries to signup
     Given I am on the SNUCSE CMS landing page
     When I want to sign up, I fill in "mysnumail@snu.ac.kr", "password" with "password"
     Then I should be on the SNUCSE CMS main page
-    And I should see "환영합니다! 등록하신 스누메일로 인증 메일이 전송되었습니다. 확인해 주세요."
 
-  @javascript
+  #  @javascript
   Scenario: User tries to login
     Given I am on the SNUCSE CMS landing page
     When I want to log in, I fill in "mysnumail@snu.ac.kr" with "password"
     Then I should be on the SNUCSE CMS main page
 
-  @javascript
+  #  @javascript
   Scenario: User tries to logout
     Given I am on the SNUCSE CMS main page
     When I press "Logout" button
     Then I should go to SNUCSE CMS landing page
-  @javascript
+
+  #  @javascript
   Scenario: User tries to modify info
     Given I am on the SNUCSE CMS main page
     When I follow "Modify info" button
@@ -28,7 +28,7 @@ Feature: User
     And I press "Modify"
     Then I should be on the SNUCSE CMS main page
 
-  @javascript
+  # @javascript
   Scenario: User tries to remove user
     Given I am on the SNUCSE CMS main page
     When I follow "Modify info" button

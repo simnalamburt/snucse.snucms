@@ -3,7 +3,9 @@ Given /^I am on the SNUCSE CMS main page and logged in$/ do
 end
 
 And /^I clicked search box$/ do
+  assert true
 end
 
 When /^I type "(\w+)"$/ do
+  assert true
 end
