@@ -25,19 +25,30 @@
     </div>
   </div>
 <% end %>
+<br>
 <div class="ui page grid">
   <div class="ten wide column">
     <h1 class="ui header">SNUCSE CMS</h1>
   </div>
-  <div class="six wide column right aligned">
+  <div class="four wide column right aligned">
+    <% if user_signed_in? %>
+      <i class="user icon"></i>
+      <%= current_user.email %>
+      </div>
+    <% end %>
+  <div class="two wide column right aligned">
       <% if user_signed_in? %>
         <% unless edit_user_registration_path == request.path %>
           <%= link_to edit_user_registration_path do %>
-            <i class="icon settings" id="edit_button"></i>
+            <div class="column">
+              <i class="icon settings" id="edit_button"></i>
+            </div>
           <% end %>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="icon sign out" id="logout_button"></i>
+          <div class="column">
+            <i class="icon sign out" id="logout_button"></i>
+          </div>
         <% end %>
       <% end %>
   </div>
