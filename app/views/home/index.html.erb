@@ -1,6 +1,10 @@
 <div class="ui page grid">
   <div class="five wide column">
     <div class="ui segment">
+      <div class="ui top attached label">
+        <i class="user icon"></i>
+        <%= current_user.email %>
+      </div>
       <div class="ui fluid search">
         <div class="ui fluid icon input">
           <input class="prompt" type="text" placeholder="Search Course">
