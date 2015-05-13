@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512223429) do
+ActiveRecord::Schema.define(version: 20150513001055) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20150512223429) do
     t.integer  "course_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.binary   "data"
+    t.integer  "data_hash"
   end
 
   add_index "sites", ["course_id"], name: "index_sites_on_course_id"
