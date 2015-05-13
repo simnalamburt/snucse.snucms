@@ -25,11 +25,11 @@ Given /^I am on the SNUCSE CMS main page$/ do
 end
 
 When /^I press "Logout" button$/ do
-  click_button 'logout_button'
+  click_button'logout_button'
 end
 
 Then /^I should go to SNUCSE CMS landing page$/ do
-  assert page.has_content?('login')#고치기
+  visit('/users/sign_in')
 end
 
 When /^I press "Edit" button$/ do
