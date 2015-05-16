@@ -34,9 +34,9 @@
       <% if user_signed_in? %>
         <% unless edit_user_registration_path == request.path %>
           <%= link_to edit_user_registration_path do %>
-            <div class="ui vertical animated button">
+            <div class="ui vertical animated button" id="edit_button">
               <div class="visible content">
-                <i class="icon settings" id="edit_button"></i>
+                <i class="icon settings"></i>
               </div>
               <div class="hidden content">
                 Edit
@@ -45,9 +45,9 @@
           <% end %>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <div class="ui vertical animated button">
+          <div class="ui vertical animated button" id="logout_button">
             <div class="visible content">
-              <i class="icon sign out" id="logout_button"></i>
+              <i class="icon sign out"></i>
             </div>
             <div class="hidden content">
               Logout

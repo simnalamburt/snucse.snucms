@@ -8,11 +8,13 @@
     <div class="ui segment">
       <div class="ui top attached label">
         <i class="user icon"></i>
-        <span style="font-size:15px"> <%= current_user.email %></span>
+        <span style="font-size:15px">
+          <%= current_user.email %>
+        </span>
       </div>
       <div class="ui fluid search">
         <div class="ui fluid icon input">
-          <input class="prompt" type="text" placeholder="Search Course">
+          <input id="search_box" class="prompt" type="text" placeholder="Search Course">
           <i class="search icon"></i>
         </div>
         <div class="results"></div>
