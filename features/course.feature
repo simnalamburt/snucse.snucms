@@ -1,18 +1,11 @@
 Feature: Course Management
-  #  @javascript
-  Scenario: User tries to search "시프"
-    Given I am on the SNUCSE CMS main page and logged in
-    And I clicked search box
-    When I type "시프"
-    Then I should see "시스템 프로그래밍" below search box
 
   #  @javascript
-  Scenario: User tries to add "시스템 프로그래밍" in his/her course list
+  Scenario: User tries to search and add "System Programing" in his/her course list
     Given I am on the SNUCSE CMS main page and logged in
-    And I typed "시프" in search box
-    And I see "시스템 프로그래밍" in search result list
-    When I click "시스템 프로그래밍"
-    Then I see "시스템 프로그래밍" in my course list
+    And I typed "s" in search box
+    When I click "System Programing"
+    Then I see "System Programing" in my course list
 
   #  @javascript
   Scenario: User tries to delete some course
