@@ -2,15 +2,11 @@
 
 one:
   id: 1
-  full_data:
-  data_hash: MyString
   message: messasge1
   site_id: 1
 
 two:
   id: 2
-  full_data:
-  data_hash: MyString
   message: message2
   site_id: 1
 
