@@ -25,26 +25,29 @@
         <% end %>
       </div>
     </div>
-    <div class="ui center aligned segment">
-      <h2 class="ui icon header">
-        <i class="huge browser icon"></i>
-      <div class="content">
-        Courses Timeline
-        <div class="sub header">
-          use courses timeline services.
+    <% if '/' == request.path %>
+      <div class="ui center aligned segment">
+        <h2 class="ui icon header">
+          <i class="huge browser icon"></i>
+        <div class="content">
+          Courses Timeline
+          <div class="sub header">
+            use courses timeline services.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="ui center aligned segment">
-      <h2 class="ui icon header">
-        <i class="huge calendar icon"></i>
-      <div class="content">
-        Shared Calendar
-        <div class="sub header">
-          use shared calendar services.
+    <% else %>
+      <div class="ui center aligned segment">
+        <h2 class="ui icon header">
+          <i class="huge calendar icon"></i>
+        <div class="content">
+          Shared Calendar
+          <div class="sub header">
+            use shared calendar services.
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="eleven wide column">
     <div class="ui list" id="timeline-list">

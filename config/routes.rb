@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :sites
   devise_for :users, :admins, controllers: { registrations: 'registrations' }
   resources :courses
@@ -18,4 +19,7 @@ Rails.application.routes.draw do
 
   get 'timeline' => 'timeline#index'
   get 'timeline/older/:offset' => 'timeline#older_than'
+
+  get 'calendar' => 'calendar#index'
+
 end
