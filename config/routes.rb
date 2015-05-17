@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'courses' => 'courses#index'
+  get 'sites' => 'sites#index'
+
   post 'course/follow' => 'home#follow_course'
   delete 'course/unfollow' => 'home#unfollow_course'
 
