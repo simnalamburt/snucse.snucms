@@ -3,9 +3,7 @@
     <div class="ui segment">
       <div class="ui top attached label">
         <i class="user icon"></i>
-        <span style="font-size:15px">
-          <%= current_user.email %>
-        </span>
+        <span style="font-size:15px"><%= current_user.email %></span>
       </div>
       <div class="ui fluid search">
         <div class="ui fluid icon input">
@@ -25,7 +23,7 @@
         <% end %>
       </div>
     </div>
-    <% if '/' == request.path %>
+    <!-- temporary implementation -->
       <div class="ui center aligned segment">
         <h2 class="ui icon header">
           <i class="huge browser icon"></i>
@@ -36,7 +34,6 @@
           </div>
         </div>
       </div>
-    <% else %>
       <div class="ui center aligned segment">
         <h2 class="ui icon header">
           <i class="huge calendar icon"></i>
@@ -47,7 +44,7 @@
           </div>
         </div>
       </div>
-    <% end %>
+    <!-- temporary implementation -->
   </div>
   <div class="eleven wide column">
     <div class="ui list" id="timeline-list">
