@@ -1,19 +1,15 @@
-<div>
-  <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>
-  <%= @year %>.<%= @month %>
+<div class="ui header aligned center">
+  <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>&nbsp;
+  <%= @year %>.<%= @month %>&nbsp;
   <%= link_to '>', {controller: 'calendar', action: 'index', year: @next_year, month: @next_month}, class: 'calendar link next' %>
 </div>
 
-<table>
+<table class="ui celled table calendar">
   <thead>
     <tr>
-      <th>Sun</th>
-      <th>Mon</th>
-      <th>Tue</th>
-      <th>Wed</th>
-      <th>Thu</th>
-      <th>Fri</th>
-      <th>Sat</th>
+      <% for wday in %w(Sun Mon Tue Wed Thu Fri Sat) %>
+        <th class="ui center aligned"><%= wday %></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
