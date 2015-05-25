@@ -15,22 +15,7 @@
     <tbody>
       <% @courses.each do |course| %>
         <tr>
-          <td>
-            <div class="ui dropdown">
-              <div class="text"><%= course.name %></div>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <% course.sites.each do |site| %>
-                  <div class="item">
-                    <a href="<%= site.url %>" target="_blank">
-                      <%= site.url %>
-                    </a>
-                  </div>
-                  <div class="divider"></div>
-                <% end %>
-              </div>
-            </div>
-          </td>
+          <td><%= course.name %> (<%= course.code %>) - <%= course.prof %></td>
           <td><%= link_to 'Show', course %></td>
           <td><%= link_to 'Edit', edit_course_path(course) %></td>
           <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
