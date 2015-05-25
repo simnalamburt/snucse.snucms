@@ -1,16 +1,9 @@
-<style>
-
-
-</style>
-
 <div class="ui page grid">
   <div class="five wide column">
     <div class="ui segment">
       <div class="ui top attached label">
         <i class="user icon"></i>
-        <span style="font-size:15px">
-          <%= current_user.email %>
-        </span>
+        <span style="font-size:15px"><%= current_user.email %></span>
       </div>
       <div class="ui fluid search">
         <div class="ui fluid icon input">
@@ -30,6 +23,30 @@
         <% end %>
       </div>
     </div>
+    <!-- temporary implementation -->
+      <div class="ui center aligned segment">
+        <h2 class="ui icon header">
+          <i class="huge browser icon"></i>
+        <div class="content">
+          Courses Timeline
+          <div class="sub header">
+            use courses timeline services.
+          </div>
+        </div>
+      </div>
+      <div class="ui center aligned segment">
+        <h2 class="ui icon header">
+          <i class="huge calendar icon"></i>
+        <div class="content">
+          Shared Calendar
+          <div class="sub header">
+            use shared calendar services.
+          </div>
+        </div>
+      </div>
+    <!-- temporary implementation -->
+    <%= link_to 'Course list', '/courses' %><br>
+    <%= link_to 'Site list', '/sites' %>
   </div>
   <div class="eleven wide column">
     <div class="ui list" id="timeline-list">
@@ -37,3 +54,4 @@
     <a href="#" class="timeline-next">Loading...</a>
   </div>
 </div>
+
