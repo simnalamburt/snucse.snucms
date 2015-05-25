@@ -76,4 +76,56 @@ $(function() {
   $(document).on('page:change', function() {
     $(document.body).on('appear click', "a.timeline-next", loadTimeline);
   });
+
+  // 새 공지사항 불러오는 기능 관련
+  var newNotices = '';
+  var applyNewNoticeBtn = function() {
+    return $("#apply-new-notice-btn");
+  };
+  var newNoticeNum = function() {
+    return $(newNotices).filter(".ui.card").length;
+  };
+
+  var getLatestNoticeId = function() {
+    var $list = $("#timeline-list .ui.card");
+    var $newList = $(newNotices);
+    if($list.length <= 0) return Number.MIN_VALUE;
+    var max1 = Math.max.apply(Math,
+      $list.map(function(i, e) { return parseInt($(e).data('timeline-id')); }));
+    var max2 = Math.max.apply(Math,
+      $newList.map(function(i, e) { return parseInt($(e).data('timeline-id')); }))
+
+    return max1 > max2 ? max1: max2;
+  };
+
+  var loadNewNotices = function() {
+    $.get('/timeline/since/' + getLatestNoticeId(), function(result) {
+      newNotices = result.trim() + newNotices;
+      if(newNoticeNum() > 0) {
+        var newNoticeBtn = applyNewNoticeBtn();
+        if(newNoticeBtn.length > 0) {
+          newNoticeBtn.find('span.count').text(newNoticeNum());
+        } else {
+          $("<div>").attr('id', 'apply-new-notice-btn').addClass("ui ignored info message center aligned segment").append(
+            $("<a>")
+              .attr('href', '#')
+              .append("View ")
+              .append($("<span>").addClass("count").text(newNoticeNum()))
+              .append(" New Notices"))
+          .prependTo($("#timeline-list"));
+        }
+      }
+    });
+  };
+
+  var applyNewNotice = function() {
+    applyNewNoticeBtn().remove();
+    $("#timeline-list").prepend($(newNotices));
+    newNotices = '';
+    return false;
+  };
+
+  setInterval(loadNewNotices, 30000);
+  $(window).focus(loadNewNotices);
+  $(document).on('click', '#apply-new-notice-btn', applyNewNotice);
 });
