@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :courses
   has_many :sites, through: :courses
+  has_many :schedules
 
   def timeline_initial(count = 10)
     timeline_older_than -1, count
