@@ -140,6 +140,12 @@ $(function() {
     $('.main.calendar').load('/calendar');
   };
   $(document).on('page:change', loadCalendar);
+  $(document).on('click', '.calendar.link', function() {
+    var link = $(this).attr('href');
+    $('.main.calendar').load(link);
+
+    return false;
+  });
 });
 
 $(function() {

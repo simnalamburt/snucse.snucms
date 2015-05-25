@@ -1,3 +1,40 @@
-<div class="ui fluid card">
-  Shared Calendar
+<div>
+  <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>
+  <%= @year %>.<%= @month %>
+  <%= link_to '>', {controller: 'calendar', action: 'index', year: @next_year, month: @next_month}, class: 'calendar link next' %>
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% day = -@start_wday %>
+  <% week = 0 %>
+    <tr>
+    <% while(day < @last_day) %>
+      <% if day < 0 %>
+        <td></td>
+      <% else %>
+        <td><%= day + 1 %></td>
+      <% end %>
+      <% day += 1 %>
+      <% week += 1 %>
+      <% if week == 7 %>
+      </tr>
+      <tr>
+        <% week = 0 %>
+      <% end %>
+    <% end %>
+    <% while(week < 7 ) %><td></td><% week += 1 %><% end %>
+  </tr>
+  </tbody>
+</table>
