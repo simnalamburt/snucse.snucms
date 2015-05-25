@@ -16,6 +16,7 @@
         <% current_user.courses.each do |c| %>
           <p class="item">
             <%= c.name %>
+            (<%= c.code %>)
             <a href="#" data-course-id="<%= c.id %>" class="delete-course">
               <i class="icon trash"></i>
             </a>
