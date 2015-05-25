@@ -169,4 +169,5 @@ $(function() {
   });
 
   $("#timeline_button").hide();
+  $(".main.calendar").hide();
 });
