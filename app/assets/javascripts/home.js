@@ -136,6 +136,13 @@ $(function() {
 });
 
 $(function() {
+  var loadCalendar = function() {
+    $('.main.calendar').load('/calendar');
+  };
+  $(document).on('page:change', loadCalendar);
+});
+
+$(function() {
   var current_tab = "timeline";
   $("#timeline_button").click(function() {
     if(current_tab === "timeline") return false;
