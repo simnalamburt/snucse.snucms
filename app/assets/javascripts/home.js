@@ -134,3 +134,26 @@ $(function() {
   $(window).focus(loadNewNotices);
   $(document).on('click', '#apply-new-notice-btn', applyNewNotice);
 });
+
+$(function() {
+  var current_tab = "timeline";
+  $("#timeline_button").click(function() {
+    if(current_tab === "timeline") return false;
+    $(".main.timeline").show();
+    $(".main.calendar").hide();
+    current_tab = "timeline";
+    $(this).hide();
+    $("#calendar_button").show();
+  });
+
+  $("#calendar_button").click(function() {
+    if(current_tab === "calendar") return false;
+    $(".main.timeline").hide();
+    $(".main.calendar").show();
+    current_tab = "calendar";
+    $(this).hide();
+    $("#timeline_button").show();
+  });
+
+  $("#timeline_button").hide();
+});
