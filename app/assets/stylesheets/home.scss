@@ -1,0 +1,20 @@
+table.calendar{
+  td {
+    width: 14.2857% !important;
+  }
+  th {
+    text-align: center;
+  }
+  tr {
+    td:first-child, th:first-child {
+      color: red;
+    }
+    td:last-child, th:last-child {
+      color: blue;
+    }
+  }
+  tbody td{
+    height: 7.5em;
+    vertical-align: top !important;
+  }
+}
