@@ -15,8 +15,7 @@
       <div class="ui list" id="course-list">
         <% current_user.courses.each do |c| %>
           <p class="item">
-            <%= c.name %>
-            (<%= c.code %>)
+            <%= c.name %> (<%= c.code %>) - <%= c.prof %>
             <a href="#" data-course-id="<%= c.id %>" class="delete-course">
               <i class="icon trash"></i>
             </a>

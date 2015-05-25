@@ -35,7 +35,10 @@ $(function() {
   $.get('/courses.json').success(function(data) {
     $('.ui.search').search({
       source: data.map(function(i) {
-        return { id: i.id, title: i.name + " (" + i.code + ')' }
+        return {
+          id: i.id,
+          title: i.name + " (" + i.code + ")\n - " + i.prof
+        }
       }),
       onSelect: function(result) {
         $.post('/course/follow', { id: result.id }).success(function() {

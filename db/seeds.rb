@@ -2,12 +2,12 @@ case Rails.env
 when 'development'
   Course.delete_all
   courses = Course.create [
-    { name: '소프트웨어 개발의 원리와 실제', code: '001' },
-    { name: '멀티코어 컴퓨팅', code: '001' },
-    { name: 'IT-리더십 세미나', code: '001' },
-    { name: '창의적통합설계2', code: '001' },
-    { name: '시스템프로그래밍', code: '001' },
-    { name: '시스템프로그래밍', code: '002' }
+    { name: '소프트웨어 개발의 원리와 실제', code: '001', prof: '전병곤' },
+    { name: '멀티코어 컴퓨팅', code: '001', prof: '이재진' },
+    { name: 'IT-리더십 세미나', code: '001', prof: '박근수' },
+    { name: '창의적통합설계2', code: '001', prof: '박근수' },
+    { name: '시스템프로그래밍', code: '001', prof: '염현상' },
+    { name: '시스템프로그래밍', code: '002', prof: '이강웅' }
   ]
 
   User.delete_all
