@@ -14,4 +14,17 @@ class TimelineController < ApplicationController
     @timeline = current_user.timeline_older_than offset, count
     render 'index'
   end
+
+  def since
+    begin
+      since_id = Integer(params[:since_id])
+    rescue
+      render 'index'
+      return
+    end
+
+    @timeline = current_user.timeline_since since_id
+    @ajax = true
+    render 'index'
+  end
 end

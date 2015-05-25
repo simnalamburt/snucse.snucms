@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
 
     return timeline
   end
+
+  def timeline_since(since)
+    timeline = Log.includes(:course).where(site: self.sites).where('id > ?', since).order('id desc')
+
+    return timeline
+  end
 end

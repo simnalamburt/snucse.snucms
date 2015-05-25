@@ -23,4 +23,12 @@ class UserTest < ActiveSupport::TestCase
     timeline = @user.timeline_older_than 1
     assert_equal 0, timeline.count
   end
+
+  test "timeline_since" do
+    @user.courses = [courses(:one), courses(:two)]
+    timeline = @user.timeline_since 1
+    assert_equal 4, timeline.count
+    timeline = @user.timeline_since 5
+    assert_equal 0, timeline.count
+  end
 end

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'timeline' => 'timeline#index'
   get 'timeline/older/:offset' => 'timeline#older_than'
+  get 'timeline/since/:since_id' => 'timeline#since'
 
   get 'calendar' => 'calendar#index'
 
