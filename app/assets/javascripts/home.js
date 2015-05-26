@@ -3,9 +3,9 @@ $(function() {
     var $list = $("#timeline-list .ui.card");
     // 아직 ajax로 불러오지 않았을 경우, 큰 값을 리턴해서 가장 최근의 타임라인 정보를 불러올 수 있도록 한다.
     // 타임라인의 아이디는 최근일수록 크니까, 가장 큰 값을 보내면 최근의 자료부터 불러온다.
-    if($list.length <= 0) return Number.MAX_VALUE;
+    if($list.length <= 0) return 0;
     return  Math.min.apply(Math,
-      $list.map(function(i, e) { return parseInt($(e).data('timeline-id')); }));
+      $list.map(function(i, e) { return parseInt($(e).data('timeline-id')); })) || 0;
   };
 
   var loadTimeline = function() {
@@ -99,8 +99,8 @@ $(function() {
       $list.map(function(i, e) { return parseInt($(e).data('timeline-id')); }));
     var max2 = Math.max.apply(Math,
       $newList.map(function(i, e) { return parseInt($(e).data('timeline-id')); }))
-
-    return max1 > max2 ? max1: max2;
+    var min = max1 > max2 ? max1: max2;
+    return isFinite(min) ? min : 0;
   };
 
   var loadNewNotices = function() {
