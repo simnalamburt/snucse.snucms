@@ -38,7 +38,7 @@
         <% if '/' == request.path %>
             <div class="ui vertical animated button" id="timeline_button">
               <div class="visible content">
-                <i class="browser icon"></i>
+                <span class="button_icon"><i class="browser icon"></i></span>
                 </div>
               <div class="hidden content">
                 <span style="font-size:12px">Timeline</span>
@@ -46,7 +46,7 @@
             </div>
             <div class="ui vertical animated button" id="calendar_button">
               <div class="visible content">
-                <i class="calendar icon"></i>
+                <span class="button_icon"><i class="calendar icon"></i></span>
                 </div>
               <div class="hidden content">
                 <span style="font-size:12px">Calendar</span>
@@ -57,7 +57,7 @@
           <%= link_to edit_user_registration_path do %>
             <div class="ui vertical animated button" id="edit_button">
               <div class="visible content">
-                <i class="icon settings"></i>
+                <span class="button_icon"><i class="icon settings"></i></span>
               </div>
               <div class="hidden content">Edit</div>
             </div>
@@ -66,7 +66,7 @@
         <%= link_to destroy_user_session_path, method: :delete do %>
           <div class="ui vertical animated button" id="logout_button">
             <div class="visible content">
-              <i class="icon sign out"></i>
+              <span class="button_icon"><i class="icon sign out"></i></span>
             </div>
             <div class="hidden content">Logout</div>
           </div>

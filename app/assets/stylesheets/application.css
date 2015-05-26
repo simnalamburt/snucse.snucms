@@ -24,3 +24,7 @@ span.main_top_subtext{
   color: #b1b1b1;
   text-align: right;
 }
+
+span.button_icon{
+  font-size: 125%;
+}
