@@ -17,7 +17,7 @@ class CrawlerJob < ActiveJob::Base
         {
           message: action['msg'],
           site: site,
-          created_at: Date.parse(
+          created_at: DateTime.parse(
             (action['date'])['date_ge_one_day'].nil? ?
             (action['date'])['date_lt_one_day'] :
             (action['date'])['date_ge_one_day']
