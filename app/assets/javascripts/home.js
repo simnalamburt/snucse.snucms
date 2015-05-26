@@ -4,8 +4,12 @@ $(function() {
     $('.main_top_header, .main_top_subtext').hide();
     $('.main_top_header, .main_top_subtext').transition('fade', 1500);
   };
+  var animateFeatureBox = function() {
+    $(this).transition('pulse');
+  };
 
   $(document).on('page:change', animateSNUCMS);
+  $(document).on('click', '.feature_box', animateFeatureBox);
 
   var getOldestTimeLineId = function() {
     var $list = $("#timeline-list .ui.card");

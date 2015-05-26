@@ -14,3 +14,13 @@
  *= require_self
  *= require semantic_ui/semantic_ui
  */
+
+span.main_top_header{
+  font-size: 125%;
+}
+
+span.main_top_subtext{
+  font-size: 75%;
+  color: #b1b1b1;
+  text-align: right;
+}
