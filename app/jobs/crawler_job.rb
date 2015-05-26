@@ -28,4 +28,12 @@ class CrawlerJob < ActiveJob::Base
 
     Log.create entries
   end
+
+  def perform_non_google_site
+    entries = Site.undefined.flat_map do |site|
+      result = Wombat.crawl do
+        base_url site.url
+
+        activities({ css: '
+  end
 end
