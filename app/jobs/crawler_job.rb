@@ -5,7 +5,10 @@ class CrawlerJob < ActiveJob::Base
         base_url site.url
 
         activities({ css: '#sites-recent-activity-wrapper tr' }, :iterator) do
-          date css: 'td:nth(1) span'
+          date do
+            date_ge_one_day xpath: 'td[1]/strong/span'
+            date_lt_one_day xpath: 'td[1]/strong/noscript'
+          end
           msg({ css: 'td:nth(2)' }, :html)
         end
       end
@@ -15,7 +18,11 @@ class CrawlerJob < ActiveJob::Base
         {
           message: action['msg'],
           site: site,
-          created_at: Date.parse(action['date'])
+          created_at: Date.parse(
+            (action['date'])['date_ge_one_day'].nil? ?
+            (action['date'])['date_lt_one_day'] :
+            (action['date'])['date_ge_one_day']
+          )
         }
       end
     end
