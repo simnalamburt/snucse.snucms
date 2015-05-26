@@ -28,7 +28,10 @@
 <br>
 <div class="ui page grid">
   <div class="ten wide column">
-    <h1 class="ui dividing header" id="main top header">SNUCMS</h1>
+    <h1 class="ui dividing header">
+      <span class="main_top_header">SNUCMS</span><br>
+      <span class="main_top_subtext">SNUCSE Course Management System</span>
+    </h1>
   </div>
   <div class="six wide column right aligned">
       <% if user_signed_in? %>
@@ -56,9 +59,7 @@
               <div class="visible content">
                 <i class="icon settings"></i>
               </div>
-              <div class="hidden content">
-                Edit
-              </div>
+              <div class="hidden content">Edit</div>
             </div>
           <% end %>
         <% end %>
@@ -67,9 +68,7 @@
             <div class="visible content">
               <i class="icon sign out"></i>
             </div>
-            <div class="hidden content">
-              Logout
-            </div>
+            <div class="hidden content">Logout</div>
           </div>
         <% end %>
       <% end %>

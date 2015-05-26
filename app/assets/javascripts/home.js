@@ -1,4 +1,12 @@
 $(function() {
+  // UI animation
+  var animateSNUCMS = function() {
+    $('.main_top_header, .main_top_subtext').hide();
+    $('.main_top_header, .main_top_subtext').transition('fade', 1500);
+  };
+
+  $(document).on('page:change', animateSNUCMS);
+
   var getOldestTimeLineId = function() {
     var $list = $("#timeline-list .ui.card");
     // 아직 ajax로 불러오지 않았을 경우, 큰 값을 리턴해서 가장 최근의 타임라인 정보를 불러올 수 있도록 한다.
