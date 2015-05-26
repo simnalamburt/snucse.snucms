@@ -6,8 +6,8 @@ class Schedule < ActiveRecord::Base
   has_many :comments
   validates :schedule_type, presence: true
   validates :name, presence: true
-  validates :course_id, presence: true
-  validates :user_id, presence: true
+  validates :course, presence: true
+  validates :user, presence: true
   validates :due_date, presence: true
   validates :content, presence: true
 end

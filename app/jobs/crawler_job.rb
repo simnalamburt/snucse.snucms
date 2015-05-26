@@ -11,6 +11,7 @@ class CrawlerJob < ActiveJob::Base
       end
 
       result['activities'].map do |action|
+        byebug
         {
           message: action['msg'],
           site: site,

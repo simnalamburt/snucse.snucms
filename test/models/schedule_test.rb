@@ -15,7 +15,7 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test "schedule should can be added" do
-    schedule = Schedule.create(course: @course, user: @user, schedule_type: :exam, name: "중간고사", due_date: DateTime.now - 1.month, content: "중간고사")
+    @course.schedules.create!(user: @user, schedule_type: :exam, name: "중간고사", due_date: DateTime.now - 1.month, content: "중간고사")
     assert_equal 3, @course.reload.schedules.count
   end
 

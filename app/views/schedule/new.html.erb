@@ -1,0 +1,28 @@
+  <i class="close icon"></i>
+  <div class="header">
+    Add new Schedule in <%= @due_date.strftime("%Y-%m-%d") %>
+  </div>
+  <div class="content">
+    <%= form_for @schedule, url: {action: 'create'}, remote: true, html: {class: 'ui form'} do |f| %>
+      <div class="field">
+        <%= f.label :course %>
+        <%= select :schedule, :course, current_user.courses.map { |course| [course.name, course.id] }, {}, {class: 'ui dropdown', required: true} %>
+      </div>
+      <div class="field">
+        <%= f.label :schedule_type %>
+        <%= select :schedule, :schedule_type, Schedule.schedule_types.to_a.map { |type| [type[0], type[0]] }, {}, {class: 'ui dropdown', required: true} %>
+      </div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true %>
+      </div>
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content, required: true %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'ui submit primary button' %>
+        <div class="ui hide-modal button">Cancel</div>
+      </div>
+    <% end %>
+  </div>
