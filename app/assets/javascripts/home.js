@@ -200,6 +200,14 @@ $(function() {
     }
   });
 
+  $(document).on('click', 'table.calendar tbody td .schedule-detail', function(e) {
+    e.stopPropagation();
+    var schedule_id = $(this).data('scheduleId');
+      $("#modal").load('/schedule/' + schedule_id, function(result) {
+        $(this).modal('show');
+      });
+  });
+
   $(document).on('click', '.hide-modal.button', function() {
     $(this).closest('.modal').modal('hide').remove();
   });

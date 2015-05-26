@@ -34,7 +34,7 @@
         <% end %>
         <% if has_schedule %>
           <% @schedules[date_str].each do |schedule| %>
-            <p><%= schedule.course.name %> <%= schedule.name %></p>
+            <p class="schedule-detail" data-schedule-id="<%= schedule.id %>"><%= schedule.course.name %> <%= schedule.name %></p>
           <% end %>
         <% end %>
       <% end %>

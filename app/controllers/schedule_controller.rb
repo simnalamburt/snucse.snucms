@@ -2,6 +2,15 @@ class ScheduleController < ApplicationController
   before_action :authenticate_user!
   layout false
 
+  def show
+    @schedule = Schedule.find_by id: params[:id]
+
+    if @schedule.nil?
+      render status: :not_found, nothing: true
+      return
+    end
+  end
+
   def new
     begin
       @due_date = Date.parse(params[:due_date])
