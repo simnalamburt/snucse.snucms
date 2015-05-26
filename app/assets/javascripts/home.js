@@ -208,7 +208,7 @@ $(function() {
       });
   });
 
-  $(document).on('click', '.hide-modal.button', function() {
+  $(document).on('click', '.hide-modal.button, .modal .close.icon', function() {
     $(this).closest('.modal').modal('hide');
   });
 
