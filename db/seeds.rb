@@ -33,7 +33,7 @@ when 'development'
   ]
 
   Log.delete_all
-  # CrawlerJob.perform_later
+  CrawlerJob.perform_later
   pivot_date = DateTime.new(2015, 3, 1, 0, 0, 0)
   Log.create [
     { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(day: 20, hour: 17, min: 16, sec: 3) },
