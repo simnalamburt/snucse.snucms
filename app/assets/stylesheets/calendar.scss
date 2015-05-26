@@ -1,3 +1,19 @@
 // Place all the styles related to the calendar controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.calendar_title_side{
+  color: #b1b1b1;
+}
+
+.calendar_title_center{
+  font-size: 120%;
+}
+
+.calendar_arrow{
+  font-size: 130%;
+}
+
+.alloced-schedule{
+  border: solid gray;
+}
