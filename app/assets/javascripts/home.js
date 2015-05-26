@@ -209,7 +209,7 @@ $(function() {
   });
 
   $(document).on('click', '.hide-modal.button', function() {
-    $(this).closest('.modal').modal('hide').remove();
+    $(this).closest('.modal').modal('hide');
   });
 
   $(document).on('ajax:success', '#new_schedule', function(e, data, status, xhr) {
