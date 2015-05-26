@@ -24,6 +24,7 @@ class CalendarController < ApplicationController
 
     @start_wday = @date.at_beginning_of_month.wday
     @last_day = ((@date + 1.month).at_beginning_of_month - 1.day).day
-  end
 
+    @schedules = Schedule.of_month current_user, @month
+  end
 end

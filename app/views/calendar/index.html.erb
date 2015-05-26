@@ -21,12 +21,21 @@
   <% week = 0 %>
     <tr>
     <% while(day <= @last_day) %>
-      <td <% if day > 0 %> data-date="<%=@year%>-<%=@month%>-<%=day%>"<% end %>>
+      <% if day > 0 %>
+        <% date_str = Date.new(@year, @month, day).strftime('%Y-%m-%d') %>
+        <% has_schedule = not(@schedules[date_str].nil?) %>
+      <% end %>
+      <td <% if day > 0 %> data-date="<%=@year%>-<%=@month%>-<%=day%>"<% end %><% if has_schedule %> class="schedule"<% end %>>
       <% if day > 0 %>
         <% if day == Time.now.day && @year == Time.now.year && @month == Time.now.month %>
           <strong><%= day %></strong>
         <% else %>
           <%= day %>
+        <% end %>
+        <% if has_schedule %>
+          <% @schedules[date_str].each do |schedule| %>
+            <p class="schedule-detail" data-schedule-id="<%= schedule.id %>"><%= schedule.course.name %> <%= schedule.name %></p>
+          <% end %>
         <% end %>
       <% end %>
       </td>

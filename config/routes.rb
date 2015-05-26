@@ -26,4 +26,9 @@ Rails.application.routes.draw do
 
   get 'calendar' => 'calendar#index'
 
+  get 'schedule/:id' => 'schedule#show'
+  get 'schedule/new/:due_date' => 'schedule#new'
+  post 'schedule/new/:due_date' => 'schedule#create'
+
+  delete 'schedule/:id/destroy' => 'schedule#destroy'
 end

@@ -180,3 +180,41 @@ $(function() {
     showTimeline();
   });
 });
+
+$(function() {
+  $(document).on('click', 'table.calendar tbody td', function() {
+    var date = $(this).data('date');
+    if(date) {
+      /*
+      $("<div>").load('/schedule/new/' + date, function(result) {
+        var modal = $(result);
+        $('body').append(modal);
+        modal.find('select.dropdown').dropdown();
+        modal.modal('show');
+      });
+      */
+      $("#modal").load('/schedule/new/' + date, function(result) {
+        $(this).find('select.dropdown').dropdown();
+        $(this).modal('show');
+      });
+    }
+  });
+
+  $(document).on('click', 'table.calendar tbody td .schedule-detail', function(e) {
+    e.stopPropagation();
+    var schedule_id = $(this).data('scheduleId');
+      $("#modal").load('/schedule/' + schedule_id, function(result) {
+        $(this).modal('show');
+      });
+  });
+
+  $(document).on('click', '.hide-modal.button', function() {
+    $(this).closest('.modal').modal('hide').remove();
+  });
+
+  $(document).on('ajax:success', '#new_schedule', function(e, data, status, xhr) {
+    $("#modal").modal('hide');
+    $(document).trigger('page:change');
+    $("#calendar_button").click();
+  });
+});
