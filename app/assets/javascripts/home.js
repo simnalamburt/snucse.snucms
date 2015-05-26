@@ -217,4 +217,11 @@ $(function() {
     $(document).trigger('page:change');
     $("#calendar_button").click();
   });
+
+  $(document).on('ajax:beforeSend', '.remove-schedule', function() {
+    return confirm('Are you sure?');
+  });
+  $(document).on('ajax:success', '.remove-schedule', function() {
+    $(this).closest('.schedule-detail').remove();
+  });
 });

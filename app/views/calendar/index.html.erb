@@ -34,7 +34,10 @@
         <% end %>
         <% if has_schedule %>
           <% @schedules[date_str].each do |schedule| %>
-            <p class="schedule-detail" data-schedule-id="<%= schedule.id %>"><%= schedule.course.name %> <%= schedule.name %></p>
+            <p class="schedule-detail" data-schedule-id="<%= schedule.id %>"><%= schedule.course.name %> <%= schedule.name %>
+            <%= link_to({controller: :schedule, action: :destroy, id: schedule.id}, method: :delete, remote: true, class: 'remove-schedule') do %>
+              <i class="remove icon"></i>
+            <% end %></p>
           <% end %>
         <% end %>
       <% end %>
