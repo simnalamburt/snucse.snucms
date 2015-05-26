@@ -1,10 +1,14 @@
 <div class="ui header aligned center">
+  <h2>
+  <span class="calendar_side"><%= @prev_year %>.<%= @prev_month %>&nbsp;&nbsp;</span>
   <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>&nbsp;
-  <%= @year %>.<%= @month %>&nbsp;
+  <span class="calendar_center"><%= @year %>.<%= @month %></span>&nbsp;
   <%= link_to '>', {controller: 'calendar', action: 'index', year: @next_year, month: @next_month}, class: 'calendar link next' %>
+  <span class="calendar_side">&nbsp;&nbsp;<%= @next_year %>.<%= @next_month %></span>
+  </h2>
 </div>
 
-<table class="ui celled table calendar">
+<table class="ui celled blue table calendar">
   <thead>
     <tr>
       <% for wday in %w(Sun Mon Tue Wed Thu Fri Sat) %>
@@ -13,24 +17,30 @@
     </tr>
   </thead>
   <tbody>
-  <% day = -@start_wday %>
+  <% day = 1 - @start_wday %>
   <% week = 0 %>
     <tr>
-    <% while(day < @last_day) %>
-      <% if day < 0 %>
-        <td></td>
-      <% else %>
-        <td><%= day + 1 %></td>
+    <% while(day <= @last_day) %>
+      <td <% if day > 0 %> data-date="<%=@year%>-<%=@month%>-<%=day%>"<% end %>>
+      <% if day > 0 %>
+        <% if day == Time.now.day && @year == Time.now.year && @month == Time.now.month %>
+          <strong><%= day %></strong>
+        <% else %>
+          <%= day %>
+        <% end %>
       <% end %>
+      </td>
       <% day += 1 %>
       <% week += 1 %>
       <% if week == 7 %>
-      </tr>
-      <tr>
+        </tr><tr>
         <% week = 0 %>
       <% end %>
     <% end %>
-    <% while(week < 7 ) %><td></td><% week += 1 %><% end %>
-  </tr>
+    <% while(week % 7 != 0) %>
+      <td></td>
+      <% week += 1 %>
+    <% end %>
+    </tr>
   </tbody>
 </table>

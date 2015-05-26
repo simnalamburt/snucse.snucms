@@ -6,7 +6,7 @@ when 'development'
     { name: '멀티코어 컴퓨팅', code: '001', prof: '이재진' },
     { name: 'IT-리더십 세미나', code: '001', prof: '박근수' },
     { name: '창의적통합설계2', code: '001', prof: '박근수' },
-    { name: '시스템프로그래밍', code: '001', prof: '염현상' },
+    { name: '시스템프로그래밍', code: '001', prof: '염헌영' },
     { name: '시스템프로그래밍', code: '002', prof: '이강웅' }
   ]
 
