@@ -15,17 +15,19 @@
     </tr>
   </thead>
   <tbody>
-  <% day = -@start_wday %>
+  <% day = 1 -@start_wday %>
   <% week = 0 %>
     <tr>
-    <% while(day < @last_day) %>
-      <% if day < 0 %>
-        <td></td>
-      <% elsif day + 1 == Time.now.day && @year == Time.now.year && @month == Time.now.month %>
-        <td style="border:solid grey"><%= day + 1 %></td>
-      <% else %>
-        <td><%= day + 1 %></td>
+    <% while(day <= @last_day) %>
+      <td>
+      <% if day > 0 %>
+        <% if day == Time.now.day && @year == Time.now.year && @month == Time.now.month %>
+          <strong><%= day %></strong>
+        <% else %>
+          <%= day %>
+        <% end %>
       <% end %>
+      </td>
       <% day += 1 %>
       <% week += 1 %>
       <% if week == 7 %>
@@ -33,7 +35,10 @@
         <% week = 0 %>
       <% end %>
     <% end %>
-    <% while(week < 7 ) %><td></td><% week += 1 %><% end %>
+    <% while(week != 0 && week < 7) %>
+      <td></td>
+      <% week += 1 %>
+    <% end %>
     </tr>
   </tbody>
 </table>
