@@ -5,11 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   email: user@example.com
   encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
 # column: value
 #
 two:
+  id: 2
   email: user2@example.com
   encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
 #  column: value
