@@ -13,19 +13,24 @@ class User < ActiveRecord::Base
     timeline_older_than -1, count
   end
 
-  # offset log id보다 작은 로그를 count 갯수만큼 가져온다
+  # offset log id의 created_at보다 created_at이작은 로그를 count 갯수만큼 가져온다
   def timeline_older_than(offset = -1, count = 10)
-    timeline = Log.includes(:course).where(site: self.sites).order('id desc').limit(count)
+    timeline = Log.includes(:course).where(site: self.sites).order('created_at desc').limit(count)
 
     if offset > 0 then
-      timeline = timeline.where('id < ?', offset)
+      offset_created_at = Log.find_by(id: offset).created_at
+      timeline = timeline.where('created_at < ?', offset_created_at).where('id != ?', offset)
     end
 
     return timeline
   end
 
   def timeline_since(since)
-    timeline = Log.includes(:course).where(site: self.sites).where('id > ?', since).order('id desc')
+    since_obj = Log.find_by(id: since)
+    return [] if since_obj.nil?
+    since_created_at = since_obj.created_at
+
+    timeline = Log.includes(:course).where(site: self.sites).where('created_at > ?', since_created_at).where('id != ?', since).order('created_at desc')
 
     return timeline
   end
