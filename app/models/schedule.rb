@@ -4,11 +4,10 @@ class Schedule < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
   has_many :comments
-  validates :schedule_type: presence: true
+  validates :schedule_type, presence: true
   validates :name, presence: true
   validates :course_id, presence: true
   validates :user_id, presence: true
-  validates :created_at, presence: true
   validates :due_date, presence: true
   validates :content, presence: true
 end
