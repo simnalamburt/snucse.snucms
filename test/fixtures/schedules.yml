@@ -1,0 +1,32 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  id: 1
+  course_id: 1
+  due_date: <%= DateTime.now + 3.day %>
+  schedule_type: <%= Schedule.schedule_types[:quiz] %>
+  user_id: 1
+  name: 'Quiz3'
+  content: 'quiz'
+
+two:
+  id: 2
+  course_id: 1
+  due_date: <%= DateTime.now + 3.week %>
+  schedule_type: <%= Schedule.schedule_types[:project] %>
+  user_id: 2
+  name: 'Final exam'
+  content: 'Final exam'
+
+three:
+  id: 3
+  course_id: 2
+  due_date: <%= DateTime.now + 2.month %>
+  schedule_type: <%= Schedule.schedule_types[:extra] %>
+  user_id: 1
+  name: 'End'
+  content: 'End of class'

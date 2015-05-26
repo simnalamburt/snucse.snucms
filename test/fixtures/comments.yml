@@ -6,12 +6,30 @@
 #
 one:
   id: 1
-  email: user@example.com
-  encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
-# column: value
-#
+  schedule_id: 1
+  user_id: 1
+  content: comment1
+
 two:
   id: 2
-  email: user2@example.com
-  encrypted_password: <%= Devise.bcrypt(User, 'password1') %>
-#  column: value
+  schedule_id: 2
+  user_id: 2
+  content: comment2
+
+three:
+  id: 3
+  schedule_id: 2
+  user_id: 1
+  content: comment3
+
+four:
+  id: 4
+  schedule_id: 1
+  user_id: 2
+  content: comment4
+
+five:
+  id: 5
+  schedule_id: 1
+  user_id: 1
+  content: comment5
