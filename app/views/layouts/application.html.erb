@@ -28,12 +28,11 @@
 <br>
 <div class="ui page grid">
   <div class="ten wide column">
-    <h1 class="ui dividing header">SNUCSE CMS</h1>
+    <h1 class="ui dividing header" id="main top header">SNUCMS</h1>
   </div>
   <div class="six wide column right aligned">
       <% if user_signed_in? %>
         <% if '/' == request.path %>
-          <!-- temporary implementation -->
             <div class="ui vertical animated button" id="timeline_button">
               <div class="visible content">
                 <i class="browser icon"></i>
@@ -42,7 +41,6 @@
                 <span style="font-size:12px">Timeline</span>
               </div>
             </div>
-          <!-- temporary implementation -->
             <div class="ui vertical animated button" id="calendar_button">
               <div class="visible content">
                 <i class="calendar icon"></i>
