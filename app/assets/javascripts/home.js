@@ -140,14 +140,6 @@ $(function() {
     $('.main.calendar').load('/calendar');
   };
 
-  $(document).on('click', "table.calendar tbody td", function() {
-    var data_date = $(this).data("date");
-    if(data_date !== undefined)
-    {
-      alert(data_date);
-    }
-  });
-
   $(document).on('page:change', loadCalendar);
   $(document).on('click', '.calendar.link', function() {
     var link = $(this).attr('href');
