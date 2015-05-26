@@ -220,7 +220,7 @@ $(function() {
       });
   });
 
-  $(document).on('click', '.hide-modal.button', function() {
+  $(document).on('click', '#modal-close-button', function() {
     $(this).closest('.modal').modal('hide');
   });
 

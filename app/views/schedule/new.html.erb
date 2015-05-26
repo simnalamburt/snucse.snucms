@@ -1,28 +1,32 @@
-  <i class="close icon"></i>
   <div class="header">
-    Add new Schedule in <%= @due_date.strftime("%Y-%m-%d") %>
+    Add a new Schedule in <%= @due_date.strftime("%Y-%m-%d") %>
   </div>
   <div class="content">
     <%= form_for @schedule, url: {action: 'create'}, remote: true, html: {class: 'ui form'} do |f| %>
       <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :name, required: true %>
+      </div>
+      <div class="field">
         <%= f.label :course %>
-        <%= select :schedule, :course, current_user.courses.map { |course| [course.name, course.id] }, {}, {class: 'ui dropdown', required: true} %>
+        <%= select :schedule, :course, current_user.courses.map { |course| [course.name + " (" + course.code + ")", course.id] }, {}, {class: 'ui dropdown', required: true} %>
       </div>
       <div class="field">
         <%= f.label :schedule_type %>
         <%= select :schedule, :schedule_type, Schedule.schedule_types.to_a.map { |type| [type[0], type[0]] }, {}, {class: 'ui dropdown', required: true} %>
       </div>
       <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, required: true %>
+        <%= f.label :due %>
+        <!-- temporary implementation -->
+        <%= f.text_field :due_date, required: false %>
       </div>
       <div class="field">
-        <%= f.label :content %>
+        <%= f.label :initial_comment %>
         <%= f.text_area :content, required: true %>
       </div>
       <div class="actions">
-        <%= f.submit class: 'ui submit primary button' %>
-        <div class="ui hide-modal button">Cancel</div>
+        <%= f.submit class: 'ui submit button', id: 'modal-add-button' %>
+        <div class="ui hide-modal button" id="modal-close-button">Cancel</div>
       </div>
     <% end %>
   </div>

@@ -1,15 +1,27 @@
-<i class="close icon"></i>
 <div class="header">
   Schedule
 </div>
 <div class="content">
-  <p>Course: <%= @schedule.course.name %></p>
-  <p>Name: <%= @schedule.name %></p>
-  <p>Due: <%= @schedule.due_date.strftime('%Y-%m-%d') %></p>
-  <p>
-    <%= simple_format(@schedule.content) %>
-  </p>
-  <div class="actions">
-    <div class="ui hide-modal button">Close</div>
-  </div>
+  <% course = @schedule.course %>
+  <table class="ui very basic table">
+    <tr>
+      <td><b>Title</b></td>
+      <td><%= @schedule.name %></td>
+    </tr>
+    <tr>
+      <td><b>Course</b></td>
+      <td><%= course.name %> (<%= course.code %>)</td>
+    </tr>
+    <tr>
+      <td><b>Type</b></td>
+      <td><%= @schedule.schedule_type %></td>
+    </tr>
+    <tr>
+      <td><b>Due</b></td>
+      <td><%= @schedule.due_date.strftime('%Y-%m-%d') %></td>
+    </tr>
+    <tr><td colspan="2"><br><%= simple_format(@schedule.content) %></td></tr>
+  </table>
+  <div class="fluid ui hide-modal button" id="modal-add-button">Add Comment</div>
+  <div class="fluid ui hide-modal button" id="modal-close-button">Close</div>
 </div>
