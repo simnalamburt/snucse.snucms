@@ -20,7 +20,7 @@ class Schedule < ActiveRecord::Base
     result = Hash.new
     query.each do |q|
       if not user.courses.include? q.course then
-        continue
+        next
       end
 
       date_str = q.due_date.strftime('%Y-%m-%d')
