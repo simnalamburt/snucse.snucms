@@ -24,6 +24,7 @@ group :development, :test do
   # Debug tools
   gem 'byebug'
   gem 'web-console', '~> 2.0'
+  gem 'mocha', require: false
 end
 
 # Crawler
