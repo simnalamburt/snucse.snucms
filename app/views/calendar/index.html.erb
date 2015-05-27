@@ -1,10 +1,20 @@
 <div class="ui header aligned center">
   <h2>
-  <span class="calendar_side"><%= @prev_year %>.<%= @prev_month %>&nbsp;&nbsp;</span>
-  <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>&nbsp;
-  <span class="calendar_center"><%= @year %>.<%= @month %></span>&nbsp;
-  <%= link_to '>', {controller: 'calendar', action: 'index', year: @next_year, month: @next_month}, class: 'calendar link next' %>
-  <span class="calendar_side">&nbsp;&nbsp;<%= @next_year %>.<%= @next_month %></span>
+    <span class="calendar_title_side">
+      <%= @prev_year %>.<%= @prev_month %>&nbsp;&nbsp;&nbsp;
+    </span>
+    <span class="calendar_arrow">
+      <%= link_to '<', {controller: 'calendar', action: 'index', year: @prev_year, month: @prev_month}, class: 'calendar link prev' %>&nbsp;
+    </span>
+    <span class="calendar_title_center">
+      <%= @year %>.<%= @month %>&nbsp;
+    </span>
+    <span class="calendar_arrow">
+      <%= link_to '>', {controller: 'calendar', action: 'index', year: @next_year, month: @next_month}, class: 'calendar link next' %>
+    </span>
+    <span class="calendar_title_side">&nbsp;&nbsp;&nbsp;
+      <%= @next_year %>.<%= @next_month %>
+    </span>
   </h2>
 </div>
 
@@ -28,16 +38,18 @@
       <td <% if day > 0 %> data-date="<%=@year%>-<%=@month%>-<%=day%>"<% end %><% if has_schedule %> class="schedule"<% end %>>
       <% if day > 0 %>
         <% if day == Time.now.day && @year == Time.now.year && @month == Time.now.month %>
-          <strong><%= day %></strong>
+          <ins><b><%= day %></b></ins>
         <% else %>
           <%= day %>
         <% end %>
         <% if has_schedule %>
           <% @schedules[date_str].each do |schedule| %>
-            <p class="schedule-detail" data-schedule-id="<%= schedule.id %>"><%= schedule.course.name %> <%= schedule.name %>
-            <%= link_to({controller: :schedule, action: :destroy, id: schedule.id}, method: :delete, remote: true, class: 'remove-schedule') do %>
-              <i class="remove icon"></i>
-            <% end %></p>
+            <p class="schedule-detail ui pointing label" data-schedule-id="<%= schedule.id %>">
+              <a><%= schedule.name %></a>
+                <%= link_to({controller: :schedule, action: :destroy, id: schedule.id}, method: :delete, remote: true, class: 'remove-schedule') do %>
+                  <i class="remove icon"></i>
+                <% end %>
+            </p>
           <% end %>
         <% end %>
       <% end %>
