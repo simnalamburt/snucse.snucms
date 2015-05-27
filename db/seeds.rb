@@ -7,7 +7,8 @@ when 'development'
     { name: 'IT-리더십 세미나', code: '001', prof: '박근수' },
     { name: '창의적통합설계2', code: '001', prof: '박근수' },
     { name: '시스템프로그래밍', code: '001', prof: '염헌영' },
-    { name: '시스템프로그래밍', code: '002', prof: '이강웅' }
+    { name: '시스템프로그래밍', code: '002', prof: '이강웅' },
+    { name: '운영체제', code: '001', prof: '신현식'}
   ]
 
   User.delete_all
@@ -26,9 +27,9 @@ when 'development'
     },
     {
       name: '메인 사이트',
-      url: 'http://meslab.snu.ac.kr/courses/2015s/project/',
+      url: 'http://mobisys.snu.ac.kr/course/os15s/',
       crawling_type: :undefined,
-      course: courses[3]
+      course: courses[6]
     }
   ]
 
