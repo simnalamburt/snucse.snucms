@@ -1,14 +1,22 @@
 $(function() {
   // UI animation
   var animateSNUCMS = function() {
-    $('.main_top_header, .main_top_subtext').hide();
-    $('.main_top_header, .main_top_subtext').transition('fade', 1500);
+    $('.main_top_header:visible, .main_top_subtext:visible')
+      .hide();
+    $('.main_top_header:hidden, .main_top_subtext:hidden')
+      .transition('fade', 1500);
   };
+  var showSNUCMS = function() {
+    $('.main_top_header:hidden, .main_top_subtext:hidden')
+      .transition('fade', 1500);
+  };
+
   var animateFeatureBox = function() {
     $(this).transition('pulse');
   };
 
   $(document).on('page:change', animateSNUCMS);
+  $(document).on('page:change', showSNUCMS);
   $(document).on('click', '.feature_box', animateFeatureBox);
 
   var getOldestTimeLineId = function() {
