@@ -1,4 +1,21 @@
 $(function() {
+  window.current_year = (new Date()).getFullYear();
+  window.current_month = (new Date()).getMonth() + 1;
+  window.getParamFromUrl = function(url, key){
+    var a = document.createElement('a');
+    a.href = url;
+    var _parammap = {};
+    a.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+      function decode(s) {
+        return decodeURIComponent(s.split("+").join(" "));
+      }
+      _parammap[decode(arguments[1])] = decode(arguments[2]);
+    });
+      return _parammap[key];
+  };
+});
+
+$(function() {
   // UI animation
   var animateSNUCMS = function() {
     $('.main_top_header:visible, .main_top_subtext:visible')
@@ -115,7 +132,7 @@ $(function() {
     if($list.length <= 0) return Number.MIN_VALUE;
     var max1 = $list.filter(":first").data("timelineId");
     var max2 = $newList.filter(":first").data("timelineId");
-    isFinite(max2) ? max2 : (isFinite(max1) ? max1 : 0);
+    return isFinite(max2) ? max2 : (isFinite(max1) ? max1 : 0);
   };
 
   var loadNewNotices = function() {
@@ -152,13 +169,23 @@ $(function() {
 
 $(function() {
   var loadCalendar = function() {
-    $('.main.calendar').load('/calendar');
+    if(current_year && current_month) {
+      $('.main.calendar').load('/calendar?year=' + current_year + '&month=' + current_month);
+    } else {
+      current_year = (new Date()).getFullYear();
+      current_month = (new Date()).getMonth() + 1;
+      $('.main.calendar').load('/calendar');
+    }
   };
 
   $(document).on('page:change', loadCalendar);
   $(document).on('click', '.calendar.link', function() {
     var link = $(this).attr('href');
     $('.main.calendar').load(link);
+    var parser = document.createElement('a');
+    parser.href = link;
+    window.current_year = parseInt(getParamFromUrl(link, 'year'));
+    window.current_month = parseInt(getParamFromUrl(link, 'month'));
 
     return false;
   });
