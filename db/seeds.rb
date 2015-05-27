@@ -8,11 +8,19 @@ when 'development'
     { name: '창의적통합설계2', code: '001', prof: '박근수' },
     { name: '시스템프로그래밍', code: '001', prof: '염헌영' },
     { name: '시스템프로그래밍', code: '002', prof: '이강웅' },
-    { name: '운영체제', code: '001', prof: '신현식'}
+    { name: '운영체제', code: '001', prof: '신현식'},
+    { name: '자료구조', code: '001', prof: '문병로'},
+    { name: '자료구조', code: '002', prof: '문봉기'},
+    { name: '프로그래밍연습', code: '001', prof: '장병탁'},
+    { name: '프로그래밍 언어', code: '001', prof: '허충길'},
+    { name: '컴퓨터 프로그래밍', code: '001', prof: '엄현상'},
+    { name: '인공지능', code: '001', prof: '장병탁'},
+    { name: '논리설계', code: '001', prof: '이창건'},
+    { name: '선형 및 비선형 계산모델', code: '001', prof: '김명수'}
   ]
 
   User.delete_all
-  User.create email: 'test@example.com', password: 'testpass', courses: courses[0..2]
+  User.create email: 'test@example.com', password: 'testpass', courses: courses[0..5]
 
   Admin.delete_all
   Admin.create email: 'admin@example.com', password: 'adminpass'
