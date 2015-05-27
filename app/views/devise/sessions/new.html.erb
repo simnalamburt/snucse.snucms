@@ -1,12 +1,78 @@
 <div class="ui page grid">
   <div class="eleven wide column">
+    <div class="ui center aligned grid">
+      <div class="two column row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="feature_box">
+              <h2 class="ui icon header">
+                <i class="huge graduation icon"></i>
+                <div class="content">
+                  Following Courses
+                  <div class="sub header">
+                    courese search and follow services, Now available.
+                  </div>
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="feature_box">
+              <h2 class="ui icon header">
+                <i class="huge browser icon"></i>
+                <div class="content">
+                  Courses Timeline
+                  <div class="sub header">
+                    periodical timeline crawling services, now available.
+                  </div>
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="two column row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="feature_box">
+              <h2 class="ui icon header">
+                <i class="huge calendar icon"></i>
+                <div class="content">
+                  Shared Calendar
+                  <div class="sub header">
+                    sharing schedule management services, now available.
+                  </div>
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="feature_box">
+              <h2 class="ui icon header">
+                <i class="huge comments icon"></i>
+                <div class="content">
+                  Comments
+                  <div class="sub header">
+                    user-creative comments services, now working on it.
+                  </div>
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="five wide column">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: :login, name: :login, class: 'ui row form segment'}) do |f| %>
       <h2 class="ui header">Log in</h2>
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, placeholder: 'SNU Email' %>
-      </div>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, placeholder: 'SNU Email' %>
+    </div>
 
       <div class="field">
         <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
