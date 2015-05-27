@@ -7,7 +7,7 @@
 one:
   id: 1
   course_id: 1
-  due_date: <%= DateTime.now + 3.day %>
+  due_date: <%= DateTime.new(2015, 5, 1, 0, 0, 0) %>
   schedule_type: <%= Schedule.schedule_types[:quiz] %>
   user_id: 1
   name: 'Quiz3'
@@ -16,7 +16,7 @@ one:
 two:
   id: 2
   course_id: 1
-  due_date: <%= DateTime.now + 3.week %>
+  due_date: <%= DateTime.new(2015, 5, 7, 0, 0, 0) %>
   schedule_type: <%= Schedule.schedule_types[:project] %>
   user_id: 2
   name: 'Final exam'
@@ -25,8 +25,17 @@ two:
 three:
   id: 3
   course_id: 2
-  due_date: <%= DateTime.now + 2.month %>
+  due_date: <%= DateTime.new(2015, 5, 13, 0, 0, 0) %>
   schedule_type: <%= Schedule.schedule_types[:extra] %>
   user_id: 1
   name: 'End'
   content: 'End of class'
+
+four:
+  id: 4
+  course_id: 1
+  due_date: <%= DateTime.new(2015, 5, 7, 0, 0, 0) %>
+  schedule_type: <%= Schedule.schedule_types[:project] %>
+  user_id: 2
+  name: 'Final exam'
+  content: 'Final exam'

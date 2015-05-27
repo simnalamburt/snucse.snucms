@@ -11,7 +11,10 @@ class Schedule < ActiveRecord::Base
   validates :due_date, presence: true
   validates :content, presence: true
 
-  def self.of_month(user, month=nil)
+  def self.of_month(user, year = nil, month = nil)
+    if year.nil?
+      year = Date.today.year
+    end
     if month.nil?
       month = Date.today.month
     end
