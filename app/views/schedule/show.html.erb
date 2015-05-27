@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td><b>Due</b></td>
-      <td><%= @schedule.due_date.strftime('%Y-%m-%d') %></td>
+      <td><%= @schedule.due_date.strftime('%Y-%m-%d') %> <%= @schedule.due_time if not @schedule.due_time.nil? %></td>
     </tr>
     <tr><td colspan="2"><br><%= simple_format(@schedule.content) %></td></tr>
   </table>

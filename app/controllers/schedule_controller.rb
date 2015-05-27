@@ -59,6 +59,6 @@ class ScheduleController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:course, :user, :name, :content, :due_date, :schedule_type)
+    params.require(:schedule).permit(:course, :user, :name, :content, :due_date, :schedule_type, :due_time)
   end
 end
