@@ -34,46 +34,47 @@
     </h1>
   </div>
   <div class="six wide column right aligned">
-      <% if user_signed_in? %>
-        <% if '/' == request.path %>
-            <div class="ui vertical animated button" id="timeline_button">
-              <div class="visible content">
-                <span class="modified-size-icon"><i class="browser icon"></i></span>
-                </div>
-              <div class="hidden content">
-                <span style="font-size:12px">Timeline</span>
-              </div>
+    <% if user_signed_in? %>
+      <% if '/' == request.path %>
+        <div class="ui vertical animated button" id="timeline_button">
+          <div class="visible content">
+            <span class="modified-size-icon"><i class="browser icon"></i></span>
             </div>
-            <div class="ui vertical animated button" id="calendar_button">
-              <div class="visible content">
-                <span class="modified-size-icon"><i class="calendar icon"></i></span>
-                </div>
-              <div class="hidden content">
-                <span style="font-size:12px">Calendar</span>
-              </div>
+          <div class="hidden content">
+            <span style="font-size:12px">Timeline</span>
+          </div>
+        </div>
+        <div class="ui vertical animated button" id="calendar_button">
+          <div class="visible content">
+            <span class="modified-size-icon"><i class="calendar icon"></i></span>
             </div>
-        <% end %>
-        <% unless edit_user_registration_path == request.path %>
-          <%= link_to edit_user_registration_path do %>
-            <div class="ui vertical animated button" id="edit_button">
-              <div class="visible content">
-                <span class="modified-size-icon"><i class="icon settings"></i></span>
-              </div>
-              <div class="hidden content">Edit</div>
-            </div>
-          <% end %>
-        <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <div class="ui vertical animated button" id="logout_button">
+          <div class="hidden content">
+            <span style="font-size:12px">Calendar</span>
+          </div>
+        </div>
+      <% end %>
+      <% unless edit_user_registration_path == request.path %>
+        <%= link_to edit_user_registration_path do %>
+          <div class="ui vertical animated button" id="edit_button">
             <div class="visible content">
-              <span class="modified-size-icon"><i class="icon sign out"></i></span>
+              <span class="modified-size-icon"><i class="icon settings"></i></span>
             </div>
-            <div class="hidden content">Logout</div>
+            <div class="hidden content">Edit</div>
           </div>
         <% end %>
       <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <div class="ui vertical animated button" id="logout_button">
+          <div class="visible content">
+            <span class="modified-size-icon"><i class="icon sign out"></i></span>
+          </div>
+          <div class="hidden content">Logout</div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
 <%= yield %>
 
 </body>
