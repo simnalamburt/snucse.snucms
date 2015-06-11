@@ -8,34 +8,14 @@
 </head>
 <body>
 
-<% if not notice.nil? %>
-  <div class="ui icon success message">
-    <i class="close icon"></i>
-    <div class="content">
-      <p class="notice"><%= notice %></p>
-    </div>
-  </div>
-<% end %>
-<% if not alert.nil? %>
-  <div class="ui icon error message">
-    <i class="close icon"></i>
-    <i class="attention circle icon"></i>
-    <div class="content">
-      <p class="alert"><%= alert %></p>
-    </div>
-  </div>
-<% end %>
+
 <br>
 <div class="ui page grid">
-  <div class="ten wide column">
+  <div class="sixteen wide column">
     <h1 class="ui dividing header">
-      <span class="main_top_header">SNUCMS</span><br>
-      <span class="main_top_subtext">SNUCSE Course Management System</span>
-    </h1>
-  </div>
-  <div class="six wide column right aligned">
-      <% if user_signed_in? %>
-        <% if '/' == request.path %>
+      <div style="float: right">
+        <% if user_signed_in? %>
+          <% if '/' == request.path %>
             <div class="ui vertical animated button" id="timeline_button">
               <div class="visible content">
                 <span class="modified-size-icon"><i class="browser icon"></i></span>
@@ -52,28 +32,52 @@
                 <span style="font-size:12px">Calendar</span>
               </div>
             </div>
-        <% end %>
-        <% unless edit_user_registration_path == request.path %>
-          <%= link_to edit_user_registration_path do %>
-            <div class="ui vertical animated button" id="edit_button">
-              <div class="visible content">
-                <span class="modified-size-icon"><i class="icon settings"></i></span>
+          <% end %>
+          <% unless edit_user_registration_path == request.path %>
+            <%= link_to edit_user_registration_path do %>
+              <div class="ui vertical animated button" id="edit_button">
+                <div class="visible content">
+                  <span class="modified-size-icon"><i class="icon settings"></i></span>
+                </div>
+                <div class="hidden content">Edit</div>
               </div>
-              <div class="hidden content">Edit</div>
+            <% end %>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <div class="ui vertical animated button" id="logout_button">
+              <div class="visible content">
+                <span class="modified-size-icon"><i class="icon sign out"></i></span>
+              </div>
+              <div class="hidden content">Logout</div>
             </div>
           <% end %>
         <% end %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <div class="ui vertical animated button" id="logout_button">
-            <div class="visible content">
-              <span class="modified-size-icon"><i class="icon sign out"></i></span>
-            </div>
-            <div class="hidden content">Logout</div>
-          </div>
-        <% end %>
-      <% end %>
+      </div>
+
+      <span class="main_top_header">SNUCMS</span><br>
+      <span class="main_top_subtext">SNUCSE Course Management System</span>
+    </h1>
+
+    <% if not notice.nil? %>
+      <div class="ui icon success message">
+        <i class="close icon"></i>
+        <div class="content">
+          <p class="notice"><%= notice %></p>
+        </div>
+      </div>
+    <% end %>
+    <% if not alert.nil? %>
+      <div class="ui icon error message">
+        <i class="close icon"></i>
+        <i class="attention circle icon"></i>
+        <div class="content">
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 <%= yield %>
 
 </body>
