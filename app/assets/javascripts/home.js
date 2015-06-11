@@ -96,6 +96,7 @@ $(function() {
             );
           $('.ui.search .prompt').val('');
           $("#timeline-list").load("/timeline");
+          $(document).trigger('page:change');
         });
       }
     });
@@ -110,6 +111,7 @@ $(function() {
     }).success(function() {
       $this.parents('p.item').remove();
       $("#timeline-list").load("/timeline");
+      $(document).trigger('page:change');
     });
     return false;
   });
@@ -196,10 +198,7 @@ $(function() {
 
     return false;
   });
-});
 
-
-$(function() {
   var current_tab = "timeline";
   $("#timeline_button").hide();
   $(".main.calendar").hide();
@@ -213,20 +212,29 @@ $(function() {
     $("#calendar_button").show();
   };
 
-  $(document).on('click', "#timeline_button", showTimeline);
-
-  $(document).on('click', "#calendar_button", function() {
+  var showCalendar = function() {
     if(current_tab === "calendar") return false;
     $(".main.timeline").hide();
     $(".main.calendar").show();
     current_tab = "calendar";
     $("#calendar_button").hide();
     $("#timeline_button").show();
-  });
+  };
+
+  $(document).on('click', "#timeline_button", showTimeline);
+  $(document).on('click', "#calendar_button", showCalendar);
 
   $(document).on('page:change', function() {
-    current_tab = '';
-    showTimeline();
+    if (current_tap === "calendar")
+    {
+      current_tab = '';
+      showCalendar();
+    }
+    else if (current_tap === "timeline")
+    {
+      current_tab = '';
+      showTimeline();
+    }
   });
 });
 
@@ -234,14 +242,6 @@ $(function() {
   $(document).on('click', 'table.calendar tbody td', function() {
     var date = $(this).data('date');
     if(date) {
-      /*
-      $("<div>").load('/schedule/new/' + date, function(result) {
-        var modal = $(result);
-        $('body').append(modal);
-        modal.find('select.dropdown').dropdown();
-        modal.modal('show');
-      });
-      */
       $("#modal").load('/schedule/new/' + date, function(result) {
         $(this).find('select.dropdown').dropdown();
         $(this).modal('show');
