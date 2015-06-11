@@ -67,6 +67,13 @@ $(function() {
     }
   };
 
+  // 검색 창에 아무 것도 입력되어 있지 않을 때, 스페이스 입력 못 하게 함.
+  $("#search_box").keypress(function(e) {
+    if($(this).val().length <= 0 && /\s/.test(String.fromCharCode(e.which))) {
+      return false;
+    }
+  });
+
   $.get('/courses.json').success(function(data) {
     $('.ui.search').search({
       source: data.map(function(i) {
