@@ -17,3 +17,10 @@
 .alloced-schedule{
   border: solid gray;
 }
+
+// Make each cell of calendar looks clickable
+.main.calendar td[data-date] {
+  cursor: pointer;
+
+  &:hover { background: #F7F7F7; }
+}
