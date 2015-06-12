@@ -32,7 +32,7 @@
 
       <div class="ui grid">
         <div class="eight wide column">
-          <%= link_to "Remove my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete , id: 'delete_account_link'%>
+          <a href="#" id="remove-account-btn">Remove my account</a>
         </div>
         <div class="eight wide right aligned column">
           <div class="actions">
@@ -42,4 +42,22 @@
     <% end %>
   </div>
   <%= link_to "Back", :back %>
+</div>
+<div class="ui modal" id="remove-account">
+  <div class="header">
+    Delete Account
+  </div>
+  <div class="content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource), html: {method: :delete, class: 'ui form'}) do |f| %>
+      <div class="ui error message"></div>
+      <div class="field">
+        <%= f.label :password %> <i>(We need your current password to confirm)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'ui ok submit button', id: 'delete-account-btn', value: "Delete Account" %>
+        <div class="ui hide-modal button" id="modal-close-button">Cancel</div>
+      </div>
+    <% end %>
+  </div>
 </div>
