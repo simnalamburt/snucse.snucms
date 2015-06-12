@@ -48,7 +48,7 @@
     Delete Account
   </div>
   <div class="content">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource), html: {method: :delete, class: 'ui form'}) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource), method: :delete, html: {class: 'ui form', id: 'delete_account'}) do |f| %>
       <div class="ui error message"></div>
       <div class="field">
         <%= f.label :password %> <i>(We need your current password to confirm)</i><br />
