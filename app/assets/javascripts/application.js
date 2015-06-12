@@ -42,7 +42,7 @@ $(function() {
 
   $(document).on('page:change', animateSNUCMS);
   $(document).on('page:change', showSNUCMS);
-  $(document).on('click', '.feature_box', animateFeatureBox);
+  $(document).on('click', '.feature_box, .course_list', animateFeatureBox);
 });
 
 $(function() {
@@ -284,6 +284,12 @@ $(function() {
   });
   $(document).on('ajax:success', '.remove-schedule', function() {
     $(this).closest('.schedule-detail').remove();
+  });
+
+  $(document).on('click', '.course_list', function() {
+    $("#modal").load('/courses #content', function(result) {
+      $(this).modal('show');
+    });
   });
 });
 
