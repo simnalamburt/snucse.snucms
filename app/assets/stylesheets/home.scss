@@ -18,3 +18,10 @@ table.calendar{
     vertical-align: top !important;
   }
 }
+
+#course_list {
+  cursor: pointer;
+
+  &:hover * { color: black; }
+  &       * { transition: color 0.5s; }
+}
