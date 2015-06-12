@@ -20,7 +20,7 @@ when 'development'
   ]
 
   User.delete_all
-  User.create email: 'test@example.com', password: 'testpass', courses: courses[0..5]
+  User.create email: 'test@example.com', password: 'testpass', courses: courses[0..13]
 
   Admin.delete_all
   Admin.create email: 'admin@example.com', password: 'adminpass'
@@ -38,6 +38,30 @@ when 'development'
       url: 'http://mobisys.snu.ac.kr/course/os15s/',
       crawling_type: :undefined,
       course: courses[6]
+    },
+    {
+      name: '메인 사이트',
+      url: 'http://bi.snu.ac.kr/Courses/PP15/PP15s.html',
+      crawling_type: :undefined,
+      course: courses[9]
+    },
+    {
+      name: '메인 사이트',
+      url: 'http://bi.snu.ac.kr/Courses/4ai15s/4ai15s.html',
+      crawling_type: :undefined,
+      course: courses[12]
+    },
+    {
+      name: '메인 사이트',
+      url: 'http://rubis.snu.ac.kr/logic_design_2015_spring',
+      crawling_type: :undefined,
+      course: courses[13]
+    },
+    {
+      name: '메인 사이트',
+      url: 'http://3map.snu.ac.kr/courses/2015/appmath/main.html',
+      crawling_type: :undefined,
+      course: courses[13]
     }
   ]
 
@@ -51,5 +75,49 @@ when 'development'
     { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 4, day: 16, hour: 20, min: 7, sec: 58) },
     { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 4, day: 20, hour: 14, min: 24, sec: 9) },
     { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 5, day: 2, hour: 10, min: 31, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 5, day: 15, hour: 10, min: 31, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 5, day: 25, hour: 10, min: 31, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 5, day: 28, hour: 19, min: 31, sec: 37) },
+    { message: '새 공지가 올라왔습니다.', site: sites[1], created_at: pivot_date.change(month: 6, day: 25, hour: 10, min: 31, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 3, day: 12, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 3, day: 20, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 3, day: 28, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 4, day: 5, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 4, day: 17, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 4, day: 26, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 5, day: 3, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 5, day: 17, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 6, day: 1, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[2], created_at: pivot_date.change(month: 6, day: 4, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 3, day: 2, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 3, day: 13, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 3, day: 24, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 4, day: 15, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 4, day: 20, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 4, day: 26, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 5, day: 13, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 5, day: 28, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 6, day: 2, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[3], created_at: pivot_date.change(month: 6, day: 7, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 3, day: 2, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 3, day: 12, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 3, day: 24, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 4, day: 16, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 4, day: 19, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 4, day: 27, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 5, day: 14, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 5, day: 29, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 6, day: 5, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[4], created_at: pivot_date.change(month: 6, day: 9, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 3, day: 2, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 3, day: 12, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 3, day: 24, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 4, day: 16, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 4, day: 19, hour: 15, min: 1, sec: 23) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 4, day: 27, hour: 13, min: 45, sec: 14) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 5, day: 14, hour: 10, min: 28, sec: 29) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 5, day: 29, hour: 19, min: 37, sec: 34) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 6, day: 1, hour: 21, min: 3, sec: 52) },
+    { message: '새 공지가 올라왔습니다.', site: sites[5], created_at: pivot_date.change(month: 6, day: 3, hour: 15, min: 1, sec: 23) }
   ]
 end
