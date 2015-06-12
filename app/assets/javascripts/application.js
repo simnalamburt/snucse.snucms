@@ -265,7 +265,11 @@ $(function() {
     e.stopPropagation();
     var schedule_id = $(this).data('scheduleId');
       $("#modal").load('/schedule/' + schedule_id, function(result) {
-        $(this).modal('show');
+        $(this).modal({
+          onApprove: function() {
+            return false;
+          }
+        }).modal('show');
       });
   });
 
