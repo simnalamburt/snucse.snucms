@@ -9,3 +9,9 @@
 #modal-close-button{
   background-color: #f0c0c0;
 }
+
+#modal .content {
+  table td {
+    word-break: break-all;
+  }
+}

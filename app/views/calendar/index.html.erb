@@ -45,7 +45,7 @@
         <% if has_schedule %>
           <% @schedules[date_str].each do |schedule| %>
             <p class="schedule-detail ui pointing label" data-schedule-id="<%= schedule.id %>">
-              <a><%= schedule.name %></a>
+              <a><%= schedule.name[0..25] %></a>
               <% if current_user == schedule.user %>
                 <%= link_to({controller: :schedule, action: :destroy, id: schedule.id}, method: :delete, remote: true, class: 'remove-schedule') do %>
                   <i class="remove icon"></i>

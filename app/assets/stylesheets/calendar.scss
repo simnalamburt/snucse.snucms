@@ -18,9 +18,15 @@
   border: solid gray;
 }
 
-// Make each cell of calendar looks clickable
-.main.calendar td[data-date] {
-  cursor: pointer;
+.main.calendar{
+  // Make each cell of calendar looks clickable
+  td[data-date] {
+    cursor: pointer;
 
-  &:hover { background: #F7F7F7; }
+    &:hover { background: #F7F7F7; }
+  }
+  .ui.pointing.label {
+    word-break: break-all;
+  }
 }
+
