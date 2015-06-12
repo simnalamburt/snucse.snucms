@@ -282,3 +282,10 @@ $(function() {
     $(this).closest('.schedule-detail').remove();
   });
 });
+
+$(function() {
+  // 계정 삭제 버튼
+  $(document).on('click', "#remove-account-btn", function() {
+    $('#remove-account').modal('show');
+  });
+});
