@@ -1,6 +1,6 @@
 <i class="close icon"></i>
 <div class="header">
-  Schedule
+  Schedule in <%= @schedule.due_date.strftime('%Y-%m-%d') %>
 </div>
 <div class="content">
   <% course = @schedule.course %>
