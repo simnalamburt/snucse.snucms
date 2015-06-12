@@ -237,12 +237,12 @@ $(function() {
   $(document).on('click', "#calendar_button", showCalendar);
 
   $(document).on('page:change', function() {
-    if (current_tap === "calendar")
+    if (current_tab === "calendar")
     {
       current_tab = '';
       showCalendar();
     }
-    else if (current_tap === "timeline")
+    else if (current_tab === "timeline")
     {
       current_tab = '';
       showTimeline();
