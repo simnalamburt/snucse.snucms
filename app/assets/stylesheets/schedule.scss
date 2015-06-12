@@ -11,7 +11,14 @@
 }
 
 #modal .content {
-  table td {
-    word-break: break-all;
+  table
+  {
+    tr td:first-child {
+      min-width: 5em;
+    }
+    td {
+      word-break: break-all;
+      word-wrap: break-word;
+    }
   }
 }
