@@ -37,12 +37,12 @@ $(function() {
   };
 
   var animateFeatureBox = function() {
-    $(this).transition('pulse');
+    $(this).children('h2').transition('pulse');
   };
 
   $(document).on('page:change', animateSNUCMS);
   $(document).on('page:change', showSNUCMS);
-  $(document).on('click', '.feature_box, .course_list', animateFeatureBox);
+  $(document).on('click', '.feature_box, #course_list', animateFeatureBox);
 });
 
 $(function() {
@@ -286,7 +286,7 @@ $(function() {
     $(this).closest('.schedule-detail').remove();
   });
 
-  $(document).on('click', '.course_list', function() {
+  $(document).on('click', '#course_list', function() {
     $("#modal").load('/courses #content', function(result) {
       $(this).modal('show');
     });
