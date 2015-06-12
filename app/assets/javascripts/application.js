@@ -43,7 +43,9 @@ $(function() {
   $(document).on('page:change', animateSNUCMS);
   $(document).on('page:change', showSNUCMS);
   $(document).on('click', '.feature_box', animateFeatureBox);
+});
 
+$(function() {
   var getOldestTimeLineId = function() {
     var $list = $("#timeline-list .ui.card");
     // 아직 ajax로 불러오지 않았을 경우, 큰 값을 리턴해서 가장 최근의 타임라인 정보를 불러올 수 있도록 한다.
@@ -206,7 +208,9 @@ $(function() {
 
     return false;
   });
+});
 
+$(function() {
   var current_tab = "timeline";
   $("#timeline_button").hide();
   $(".main.calendar").hide();
