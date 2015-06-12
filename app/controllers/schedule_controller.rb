@@ -4,6 +4,7 @@ class ScheduleController < ApplicationController
 
   def show
     @schedule = Schedule.find_by id: params[:id]
+    @comment = Comment.new
 
     if @schedule.nil?
       render status: :not_found, nothing: true

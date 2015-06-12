@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+  <div class="item comment">
+    <div class="header">
+      <%= comment.user.email %>
+    </div>
+    <%= comment.content %>
+  </div>
+<% end %>

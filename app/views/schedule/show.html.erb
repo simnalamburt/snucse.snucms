@@ -23,8 +23,29 @@
     </tr>
     <tr><td colspan="2"><br><%= simple_format(@schedule.content) %></td></tr>
   </table>
-  <div class="actions">
-    <div class="ui hide-modal button" id="modal-add-button">Add Comment</div>
-    <div class="ui hide-modal button" id="modal-close-button">Close</div>
+  <h3>Comments</h3>
+  <div class="ui celled list comment-list">
+    <% unless @schedule.comments.empty? %>
+      <% @schedule.comments.each do |comment| %>
+        <div class="item comment">
+          <div class="content">
+            <div class="header"><%= comment.user.email %></div>
+            <%= comment.content %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="item no-comment">
+        <div class="header">There is no comment.</div>
+      </div>
+    <% end %>
   </div>
+  <%= form_for @comment, url: {action: :create, controller: :comment, schedule_id: @schedule.id}, remote: true, method: :post, html: {class: 'ui form comment-form'} do |f| %>
+    <div class="ui error message"></div>
+    <%= f.text_area :content %>
+    <div class="actions">
+      <%= button_tag 'Add Comment', type: 'submit', id: 'modal-add-button', class: 'ui button' %>
+      <div class="ui hide-modal button" id="modal-close-button">Close</div>
+    </div>
+  <% end %>
 </div>

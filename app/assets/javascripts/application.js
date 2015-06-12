@@ -291,6 +291,15 @@ $(function() {
       $(this).modal('show');
     });
   });
+
+  $(document).on('ajax:success', '.comment-form', function(e, data, status_code) {
+    $(".comment-list").append($(data));
+    $(".no-comment").remove();
+    $(this).form('clear').find('.error.message').html('').hide();
+  }).on('ajax:error', function(e, xhr, status_code, error) {
+    xhr.responseJSON[0];
+    $(this).find('.error.message').html(xhr.responseJSON.join("<br>")).show();
+  });
 });
 
 $(function() {

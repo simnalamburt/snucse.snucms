@@ -30,4 +30,7 @@ Rails.application.routes.draw do
   post 'schedule/new/:due_date' => 'schedule#create'
 
   delete 'schedule/:id/destroy' => 'schedule#destroy'
+
+  get 'schedule/:schedule_id/comment/:id' => 'comment#show'
+  post 'schedule/:schedule_id/comment/new' => 'comment#create'
 end
