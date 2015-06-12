@@ -15,14 +15,18 @@
  *= require semantic_ui/semantic_ui
  */
 
-.main_top_header{
-  font-size: 125%;
-}
+#logo {
+  color: inherit;
 
-.main_top_subtext{
-  font-size: 75%;
-  color: #b1b1b1;
-  text-align: right;
+  #main {
+    font-size: 125%;
+  }
+
+  #sub {
+    font-size: 75%;
+    color: #b1b1b1;
+    text-align: right;
+  }
 }
 
 .modified-size-icon{
