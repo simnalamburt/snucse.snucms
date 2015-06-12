@@ -29,7 +29,14 @@
       <% @schedule.comments.each do |comment| %>
         <div class="item comment">
           <div class="content">
-            <div class="header"><%= comment.user.email %></div>
+            <div class="header">
+              <%= comment.user.email %>
+              <% if current_user == comment.user %>
+                <%= link_to({action: :destroy, controller: 'comment', schedule_id: @schedule.id, id: comment.id}, {method: :delete, remote: true, class: 'delete-comment-btn'}) do %>
+                  <i class="remove icon"></i>
+                <% end %>
+              <% end %>
+            </div>
             <%= comment.content %>
           </div>
         </div>

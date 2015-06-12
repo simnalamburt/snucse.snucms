@@ -28,6 +28,22 @@ class CommentController < ApplicationController
     end
   end
 
+  def destroy
+    @comments = Comment.find_by(id: params[:id])
+    if @comments.nil? or @comments.schedule_id != Integer(params[:schedule_id])
+      render nothing: true, status: 404
+      return
+    elsif @comments.user != current_user
+      render nothing: true, status: 400
+    else
+      if @comments.destroy
+        render nothing: true, status: :ok
+      else
+        render status: 500, json: @comments.errors.full_messages
+      end
+    end
+  end
+
   def create_params
     params.require(:comment).permit(:schedule_id, :user, :content)
   end

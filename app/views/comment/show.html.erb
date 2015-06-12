@@ -2,6 +2,11 @@
   <div class="item comment">
     <div class="header">
       <%= comment.user.email %>
+      <% if current_user == comment.user %>
+        <%= link_to({action: :destroy, schedule_id: comment.schedule.id, id: comment.id}, {method: :delete, remote: true, class: 'delete-comment-btn'}) do %>
+          <i class="remove icon"></i>
+        <% end %>
+      <% end %>
     </div>
     <%= comment.content %>
   </div>

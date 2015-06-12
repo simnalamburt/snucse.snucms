@@ -303,6 +303,14 @@ $(function() {
   }).on('ajax:error', function(e, xhr, status_code, error) {
     xhr.responseJSON[0];
     $(this).find('.error.message').html(xhr.responseJSON.join("<br>")).show();
+  }).on('ajax:success', '.delete-comment-btn', function() {
+    var $list = $('.comment-list');
+    $(this).closest('.comment').remove();
+    if($list.find('.comment').length <= 0) {
+      $list.append('<div class="item no-comment"><div class="header">There is no comment.</div></div>');
+    }
+  }).on('ajax:error', '.delete-comment-btn', function(e, xhr, status_code) {
+    alert('Error: ' + status_code);
   });
 });
 
