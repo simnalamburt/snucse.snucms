@@ -35,4 +35,19 @@ class Schedule < ActiveRecord::Base
     end
     return result
   end
+
+  def color
+    case self.schedule_type
+    when 'exam'
+      'teal'
+    when 'assignment'
+      'yellow'
+    when 'project'
+      'red'
+    when 'quiz'
+      'green'
+    else
+      'black'
+    end
+  end
 end
