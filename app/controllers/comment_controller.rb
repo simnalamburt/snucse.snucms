@@ -31,16 +31,13 @@ class CommentController < ApplicationController
   def destroy
     @comments = Comment.find_by(id: params[:id])
     if @comments.nil? or @comments.schedule_id != Integer(params[:schedule_id])
-      render nothing: true, status: 404
+      render nothing: true, status: :not_found
       return
     elsif @comments.user != current_user
-      render nothing: true, status: 400
+      render nothing: true, status: :forbidden
     else
-      if @comments.destroy
-        render nothing: true, status: :ok
-      else
-        render status: 500, json: @comments.errors.full_messages
-      end
+      @comments.destroy
+      render nothing: true, status: :ok
     end
   end
 
