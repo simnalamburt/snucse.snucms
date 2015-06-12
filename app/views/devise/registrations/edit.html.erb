@@ -1,47 +1,50 @@
-<div class="ui two column page grid">
-  <div class="centered column">
+<div class="ui centered page grid">
+  <div class="eight wide column">
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put },
-                 html: {class: 'ui form segment'}) do |f| %>
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
-      <%= devise_error_messages! %>
+    <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+        html: { method: :put, class: 'ui large form segment' } do |f| %>
+      <h1 class="ui header">User profile</h1>
+      <div class="ui divider"></div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, disabled: true %>
+      <div class="required field">
+        <%= f.label :current_password %>
+        <div class="ui icon input">
+          <%= f.password_field :current_password, autocomplete: "off" %>
+          <i class="lock icon"></i>
+        </div>
       </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
+      <div style="float: right">
+        <div class="ui buttons">
+          <%= f.submit 'Update', class: 'ui submit positive button', id: 'update_button' %>
+          <div class="or"></div>
+          <a class="ui negative button" href="javascript:void(0)" id="remove-account-btn">Delete Account</a>
+        </div>
       </div>
-
-      <div class="ui grid">
-        <div class="eight wide column">
-          <a href="#" id="remove-account-btn">Remove my account</a>
+    <% end %>
+  </div>
+  <div class="twelve wide column">
+    <% unless devise_error_messages!.empty? %>
+      <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="content">
+          <%= devise_error_messages! %>
         </div>
-        <div class="eight wide right aligned column">
-          <div class="actions">
-            <%= f.submit "Update", class: 'ui submit button', id: 'update_button' %>
-          </div>
-        </div>
+      </div>
     <% end %>
   </div>
 </div>
+
 <div class="ui modal" id="remove-account">
   <div class="header">
     Delete Account
