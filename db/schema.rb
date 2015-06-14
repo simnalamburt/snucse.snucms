@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611083724) do
+ActiveRecord::Schema.define(version: 20150614090127) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150611083724) do
     t.datetime "created_at",                                                        null: false
     t.datetime "updated_at",                                                        null: false
     t.string   "data",                     default: "eJxj4YhmAAAA4gBo"
-    t.string   "data_hash",     limit: 20, default: "BbnUIJYuEq1+BLsIS9AXXcaJ0SA="
+    t.string   "data_hash",     limit: 30, default: "BbnUIJYuEq1+BLsIS9AXXcaJ0SA="
   end
 
   add_index "sites", ["course_id"], name: "index_sites_on_course_id"
